@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylq.internships.mapper.SchoolMapper">
+    <resultMap id="school" type="School">
+        <id property="scName" column="sc_name" javaType="String"/>
+        <result property="scLocation" column="sc_location" javaType="String"/>
+        <result property="scTel" column="sc_tel" javaType="String"/>
+        <result property="scEmail" column="sc_email" javaType="String"/>
+        <result property="scInfo" column="sc_info" javaType="String"/>
+    </resultMap>
+</mapper>

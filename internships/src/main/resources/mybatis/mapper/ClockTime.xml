@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylq.internships.mapper.ClockTimeMapper">
+    <resultMap id="clockTime" type="ClockTime">
+        <id property="id" column="id" javaType="Integer"/>
+        <result property="wxNo" column="wx_no" javaType="String"/>
+        <result property="startTime" column="start_time" javaType="java.util.Date"/>
+        <result property="endTime" column="end_time" javaType="java.util.Date"/>
+        <result property="clockType" column="clock_type" javaType="String"/>
+        <result property="scTeaWx" column="sc_tea_wx" javaType="String"/>
+    </resultMap>
+</mapper>
