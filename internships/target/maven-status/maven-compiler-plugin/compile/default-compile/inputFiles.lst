@@ -47,6 +47,7 @@ E:\ideaProject\internships\src\main\java\com\ylq\internships\interceptor\LoginHa
 E:\ideaProject\internships\src\main\java\com\ylq\internships\service\ClockTimeService.java
 E:\ideaProject\internships\src\main\java\com\ylq\internships\mapper\InformationMapper.java
 E:\ideaProject\internships\src\main\java\com\ylq\internships\entity\StuAllot.java
+E:\ideaProject\internships\src\main\java\com\ylq\internships\utils\Contant.java
 E:\ideaProject\internships\src\main\java\com\ylq\internships\controller\StudentApartmentController.java
 E:\ideaProject\internships\src\main\java\com\ylq\internships\mapper\CompanyJobMapper.java
 E:\ideaProject\internships\src\main\java\com\ylq\internships\service\ClassService.java
@@ -76,6 +77,7 @@ E:\ideaProject\internships\src\main\java\com\ylq\internships\service\serviceImp\
 E:\ideaProject\internships\src\main\java\com\ylq\internships\service\CompanyJobService.java
 E:\ideaProject\internships\src\main\java\com\ylq\internships\controller\ClassController.java
 E:\ideaProject\internships\src\main\java\com\ylq\internships\entity\Class.java
+E:\ideaProject\internships\src\main\java\com\ylq\internships\utils\PageUtil.java
 E:\ideaProject\internships\src\main\java\com\ylq\internships\entity\School.java
 E:\ideaProject\internships\src\main\java\com\ylq\internships\service\StudentService.java
 E:\ideaProject\internships\src\main\java\com\ylq\internships\entity\WaitInsertInfo.java

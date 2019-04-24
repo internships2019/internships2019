@@ -65,4 +65,15 @@ public class School {
     public void setScInfo(String scInfo) {
         this.scInfo = scInfo;
     }
+
+    @Override
+    public String toString() {
+        return "School{" +
+                "scName='" + scName + '\'' +
+                ", scLocation='" + scLocation + '\'' +
+                ", scTel='" + scTel + '\'' +
+                ", scEmail='" + scEmail + '\'' +
+                ", scInfo='" + scInfo + '\'' +
+                '}';
+    }
 }

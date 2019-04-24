@@ -24,7 +24,7 @@
                 <dl class="layui-nav-child"> <!-- 二级菜单 -->
                     <dd><a onclick="x_admin_show('个人信息修改','manager/to_edit_Information')">个人信息修改</a></dd>
                     <dd><a onclick="x_admin_show('切换帐号','http://www.baidu.com')">个人信息</a></dd>
-                    <dd><a href="./login.html">退出</a></dd>
+                    <dd><a href="manager/logOut">退出</a></dd>
                 </dl>
             </li>
         </ul>
@@ -41,15 +41,15 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a _href="/table">
+                            <a _href="manager/shool_list.manager">
                                 <i class="iconfont">&#xe699;</i>
                                 <cite>学校列表</cite>
                             </a>
                         </li >
                         <li>
-                            <a _href="member-del.html">
-                                <i class="iconfont">&#xe6a7;</i>
-                                <cite>会员删除</cite>
+                            <a _href="manager/school_manager_list.manager">
+                                <i class="iconfont">&#xe699;</i>
+                                <cite>管理员列表</cite>
                             </a>
                         </li>
                     </ul>
@@ -216,7 +216,7 @@
             </ul>
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
-                    <iframe src='./welcome.html' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+                    <iframe src='manager/to_welcome' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
                 </div>
             </div>
         </div>

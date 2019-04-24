@@ -14,12 +14,33 @@
         where man_account=#{manAccount}
     </select>
 
+    <select id="getSchoolManager" parameterType="String" resultMap="manager">
+        SELECT * FROM `manager` where man_status=#{manStatus}
+    </select>
+
+    <insert id="insertManager" parameterType="Manager">
+        INSERT INTO `manager` ( `man_account`, `man_name`, `man_password`, `man_unit_name`, `man_status` )
+        VALUES ( #{manAccount}, #{manName}, #{manPassword}, #{manNuitName}, #{manStatus} ) ;
+    </insert>
+
     <update id="updateManager" parameterType="Manager">
         UPDATE
           `manager`
-        SET
-            <if test="manName !=null and manName!= ''">`man_name` = #{manName},</if>
-            <if test="manPassword !=null and manPassword!= ''">`man_password` = #{manPassword}</if>
+        <set>
+            <if test="manName !=null and manName!= ''">`man_name` = #{manName}</if>
+            <if test="manPassword !=null and manPassword!= ''">,`man_password` = #{manPassword}</if>
+        </set>
         WHERE `man_account` =#{manAccount}
     </update>
+
+    <delete id="deleteManager" parameterType="String">
+        DELETE FROM `manager` WHERE `man_account` = #{manAccount} ;
+    </delete>
+
+    <delete id="deleteBatchManager"  parameterType="String">
+        DELETE FROM `manager` WHERE `man_account` in
+        <foreach collection="array" item="manAccount" open="(" separator="," close=")">
+            #{manAccount}
+        </foreach>
+    </delete>
 </mapper>

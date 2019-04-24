@@ -8,4 +8,36 @@
         <result property="scEmail" column="sc_email" javaType="String"/>
         <result property="scInfo" column="sc_info" javaType="String"/>
     </resultMap>
+
+    <select id="getAll" resultMap="school">
+        SELECT `sc_name`, `sc_location`, `sc_tel`, `sc_email` FROM `school`
+    </select>
+
+    <select id="getSchoolByName" resultMap="school">
+        SELECT `sc_name`, `sc_location`, `sc_tel`, `sc_email`, `sc_info` FROM `school` where sc_name=#{scName}
+    </select>
+
+    <select id="getAllName" resultType="String">
+        select sc_name from `school`
+    </select>
+
+    <insert id="insertSchool" parameterType="School">
+        INSERT INTO `school` ( `sc_name`, `sc_location`, `sc_tel`, `sc_email`, `sc_info` )
+        VALUES ( #{scName}, #{scLocation}, #{scTel}, #{scEmail}, #{scInfo} ) ;
+    </insert>
+
+    <update id="updateSchool" parameterType="School">
+        UPDATE
+          `school`
+        <set>
+            `sc_tel` = #{scTel},
+            `sc_email` =  #{scEmail},
+            <if test="scInfo !=null and scInfo !=''">`sc_info` =  #{scInfo},</if>
+        </set>
+        WHERE `sc_name` = #{scName} ;
+    </update>
+
+    <delete id="deleteSchool" parameterType="String">
+        DELETE FROM `school` WHERE `sc_name` = #{scName};
+    </delete>
 </mapper>

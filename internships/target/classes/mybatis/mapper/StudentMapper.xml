@@ -26,4 +26,5 @@
             <result property="displineName" column="displine_name" javaType="String"/>
         </association>
     </resultMap>
+
 </mapper>

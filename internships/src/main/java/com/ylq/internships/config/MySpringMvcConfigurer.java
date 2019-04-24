@@ -31,13 +31,17 @@ public class MySpringMvcConfigurer implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/login").setViewName("/main/login");
         registry.addViewController("/test").setViewName("/main/test");
+        registry.addViewController("/add-school").setViewName("/manager/school-add");
+        registry.addViewController("/edit-school").setViewName("/manager/school-edit");
+        registry.addViewController("/edit-manager").setViewName("/manager/manager-edit");
+        registry.addViewController("/add-school-manager").setViewName("/manager/school-manager-add");
     }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginHandlerInterceptor())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/login","/**/toLogin","/test","/**/*.vx")//"/**/login/*",
+                .excludePathPatterns("/login","/**/toLogin","/login.html","/test","/**/*.wx")//"/**/login/*",
                 .excludePathPatterns("/**/*.png")
                 .excludePathPatterns("/**/css/*","/**/js/*","/**/*.js","/**/fonts/*","/**/images/*","/**/jstest/*","/**/layui/*","/**/layer.css");
     }
