@@ -9,7 +9,7 @@ public class WaitInsertInfo {
     //单位名称
     private String unitName;
     //人员编号
-    private String unitNo;
+    private String pNo;
     //姓名
     private String pName;
     //身份证号
@@ -28,10 +28,10 @@ public class WaitInsertInfo {
     public WaitInsertInfo() {
     }
 
-    public WaitInsertInfo(Integer id, String unitName, String unitNo, String pName, String pId, String pStatus, String pSex, String pTel, String pImg, String className) {
+    public WaitInsertInfo(Integer id, String unitName, String pNo, String pName, String pId, String pStatus, String pSex, String pTel, String pImg, String className) {
         this.id = id;
         this.unitName = unitName;
-        this.unitNo = unitNo;
+        this.pNo = pNo;
         this.pName = pName;
         this.pId = pId;
         this.pStatus = pStatus;
@@ -57,12 +57,12 @@ public class WaitInsertInfo {
         this.unitName = unitName;
     }
 
-    public String getUnitNo() {
-        return unitNo;
+    public String getpNo() {
+        return pNo;
     }
 
-    public void setUnitNo(String unitNo) {
-        this.unitNo = unitNo;
+    public void setpNo(String pNo) {
+        this.pNo = pNo;
     }
 
     public String getpName() {

@@ -7,4 +7,9 @@
         <result property="attanPecent" column="attan_percent" javaType="Double"/>
         <result property="apprPecent" column="appr_percent" javaType="Double"/>
     </resultMap>
+
+    <insert id="insertScoreStandard">
+        INSERT INTO `score_standard` ( `sc_name`, `attan_percent`, `appr_percent` )
+        VALUES ( #{scName},  #{attanPecent}, #{apprPecent} ) ;
+    </insert>
 </mapper>

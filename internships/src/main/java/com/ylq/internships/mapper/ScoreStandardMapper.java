@@ -1,5 +1,6 @@
 package com.ylq.internships.mapper;
 
+import com.ylq.internships.entity.ScoreStandard;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -7,4 +8,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface ScoreStandardMapper {
+    void insertScoreStandard(ScoreStandard scoreStandard);
 }

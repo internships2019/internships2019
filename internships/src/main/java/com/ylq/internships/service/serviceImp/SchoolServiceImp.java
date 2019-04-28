@@ -3,7 +3,9 @@ package com.ylq.internships.service.serviceImp;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.ylq.internships.entity.School;
+import com.ylq.internships.entity.ScoreStandard;
 import com.ylq.internships.mapper.SchoolMapper;
+import com.ylq.internships.mapper.ScoreStandardMapper;
 import com.ylq.internships.service.SchoolService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +20,8 @@ public class SchoolServiceImp  implements SchoolService {
 
     @Autowired
     private SchoolMapper schoolMapper;
+    @Autowired
+    private ScoreStandardMapper scoreStandardMapper;
     Logger logger= LoggerFactory.getLogger(getClass());
 
     //获取学校列表
@@ -50,6 +54,8 @@ public class SchoolServiceImp  implements SchoolService {
     public void addSchool(School school) {
         logger.info("SchoolServiceImp的gaddSchool执行==="+school.toString());
         schoolMapper.insertSchool(school);
+        //学校添加默认分值占比为0.5,0.5
+        scoreStandardMapper.insertScoreStandard(new ScoreStandard(school.getScName(),0.5,0.5));
     }
 
     //修改学校

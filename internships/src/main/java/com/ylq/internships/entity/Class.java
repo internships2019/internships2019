@@ -87,4 +87,17 @@ public class Class {
     public void setInstructorTel(String instructorTel) {
         this.instructorTel = instructorTel;
     }
+
+    @Override
+    public String toString() {
+        return "Class{" +
+                "sScName='" + sScName + '\'' +
+                ", className='" + className + '\'' +
+                ", collegeName='" + collegeName + '\'' +
+                ", displineName='" + displineName + '\'' +
+                ", classStuNum=" + classStuNum +
+                ", instructorName='" + instructorName + '\'' +
+                ", instructorTel='" + instructorTel + '\'' +
+                '}';
+    }
 }

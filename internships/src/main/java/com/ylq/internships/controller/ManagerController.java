@@ -1,5 +1,6 @@
 package com.ylq.internships.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageInfo;
 import com.ylq.internships.entity.Manager;
 import com.ylq.internships.service.ManagerService;
@@ -127,5 +128,13 @@ public class ManagerController {
     public void removeBatchManager(@RequestBody String[] manAccounts){
         logger.info("ManagerController的removeBatchManager方法执行了"+manAccounts);
         managerService.removeBatchManager(manAccounts);
+    }
+
+    //获取session中存储的管理员信息
+    @ResponseBody
+    @RequestMapping("/get_manager_information")
+    public String getManagerBySession(HttpSession session){
+        logger.info("ManagerController的getManagerBySession方法执行了");
+        return JSONObject.toJSONString(session.getAttribute("user"));
     }
 }

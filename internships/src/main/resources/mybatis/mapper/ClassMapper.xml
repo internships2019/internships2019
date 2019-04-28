@@ -10,4 +10,33 @@
         <result property="instructorName" column="instructor_name" javaType="String"/>
         <result property="instructorTel" column="instructor_tel" javaType="String"/>
     </resultMap>
+
+    <select id="getAll" parameterType="String" resultMap="class">
+        SELECT * FROM `class` where s_sc_name=#{sScName}
+    </select>
+
+    <select id="getByNames" resultMap="class">
+         SELECT * FROM `class` where s_sc_name=#{sScName} and class_name=#{className}
+    </select>
+
+    <select id="getByClassName" resultMap="class">
+         SELECT * FROM `class` where s_sc_name=#{sScName} and class_name=#{className}
+    </select>
+
+
+    <insert id="insertClass" parameterType="Class">
+        INSERT INTO `class` ( `s_sc_name`, `class_name`, `college_name`, `displine_name`, `class_stu_num`, `instructor_name`, `instructor_tel` )
+        VALUES ( #{sScName}, #{className},#{collegeName}, #{displineName}, #{classStuNum}, #{instructorName}, #{instructorTel} ) ;
+    </insert>
+
+    <insert id="insertBatchClass" parameterType="java.util.List">
+        INSERT INTO `class` ( `s_sc_name`, `class_name`, `college_name`, `displine_name`, `class_stu_num`, `instructor_name`, `instructor_tel` )
+        VALUES
+        <foreach collection="list" item="class" index="index" separator=",">
+            ( #{class.sScName}, #{class.className},#{class.collegeName}, #{class.displineName}, #{class.classStuNum},
+            #{class.instructorName}, #{class.instructorTel} )
+        </foreach>
+        ON DUPLICATE KEY UPDATE college_name=values(college_name),displine_name=values(displine_name),
+        class_stu_num=values(class_stu_num),instructor_name=values(instructor_name),instructor_tel=values(instructor_tel)
+    </insert>
 </mapper>

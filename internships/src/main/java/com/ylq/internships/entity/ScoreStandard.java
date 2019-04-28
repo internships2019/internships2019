@@ -16,8 +16,7 @@ public class ScoreStandard {
     public ScoreStandard() {
     }
 
-    public ScoreStandard(Integer standardId, String scName, Double attanPecent, Double apprPecent) {
-        this.standardId = standardId;
+    public ScoreStandard( String scName, Double attanPecent, Double apprPecent) {
         this.scName = scName;
         this.attanPecent = attanPecent;
         this.apprPecent = apprPecent;
