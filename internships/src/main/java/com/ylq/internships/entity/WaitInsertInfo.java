@@ -41,6 +41,23 @@ public class WaitInsertInfo {
         this.className = className;
     }
 
+    public WaitInsertInfo(String unitName, String unitNo, String pId,String status) {
+        this.unitName = unitName;
+        this.unitNo = unitNo;
+        this.pId = pId;
+        this.pStatus = status;
+    }
+
+    @Override
+    public String toString() {
+        return "WaitInsertInfo{" +
+                "unitName='" + unitName + '\'' +
+                ", unitNo='" + unitNo + '\'' +
+                ", pId='" + pId + '\'' +
+                ", pStatus='" + pStatus + '\'' +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

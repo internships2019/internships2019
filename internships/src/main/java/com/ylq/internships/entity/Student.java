@@ -45,6 +45,28 @@ public class Student {
         this.bindState = bindState;
     }
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "wxNo='" + wxNo + '\'' +
+                ", sNo='" + sNo + '\'' +
+                ", sName='" + sName + '\'' +
+                ", sSex='" + sSex + '\'' +
+                ", sImg='" + sImg + '\'' +
+                ", sScName='" + sScName + '\'' +
+                ", sState='" + sState + '\'' +
+                ", stuTel='" + stuTel + '\'' +
+                ", className='" + className + '\'' +
+                ", bindState='" + bindState + '\'' +
+                ", stuAllot=" + stuAllot +
+                ", aClass=" + aClass +
+                '}';
+    }
+
+    public Student initStu(String opid, WaitInsertInfo w){
+        Student student = new Student(opid,w.getUnitNo(),w.getpName(),w.getpSex(),w.getpImg(),w.getUnitName(),"未分配",w.getpTel(),w.getClassName(),"已绑定");
+        return student;
+    }
     public String getWxNo() {
         return wxNo;
     }

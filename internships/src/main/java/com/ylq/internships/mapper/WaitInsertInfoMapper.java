@@ -1,5 +1,6 @@
 package com.ylq.internships.mapper;
 
+import com.ylq.internships.entity.WaitInsertInfo;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -7,5 +8,6 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface WaitInsertInfoMapper {
+    public WaitInsertInfo selectPerson(WaitInsertInfo waitInsertInfo);
 
-}
+    }

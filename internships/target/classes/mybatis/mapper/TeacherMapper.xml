@@ -12,4 +12,7 @@
         <result property="pTel" column="p_tel" javaType="String"/>
         <result property="pImg" column="p_img" javaType="String"/>
     </resultMap>
+    <insert id="insertTea" parameterType="Teacher">
+        INSERT INTO `teacher` VALUES ( #{wxNo}, #{unitName}, #{unitNo}, #{pName}, #{pId}, #{pStatus}, #{pSex}, #{pTel}, #{pImg} ) ;
+    </insert>
 </mapper>

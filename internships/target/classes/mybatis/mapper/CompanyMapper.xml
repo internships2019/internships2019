@@ -10,4 +10,8 @@
         <result property="comLongtitude" column="com_longtitude" javaType="Double"/>
         <result property="comLatitude" column="com_latitude" javaType="Double"/>
     </resultMap>
+
+    <select id="getAll" resultMap="company">
+        SELECT `com_name`FROM `company`
+    </select>
 </mapper>

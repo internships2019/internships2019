@@ -4,7 +4,7 @@
     <resultMap id="waitInsertInfo" type="WaitInsertInfo">
         <id property="id" column="id" javaType="Integer"/>
         <result property="unitName" column="unit_name" javaType="String"/>
-        <result property="unitNo" column="unit_no" javaType="String"/>
+        <result property="unitNo" column="p_no" javaType="String"/>
         <result property="pName" column="p_name" javaType="String"/>
         <result property="pId" column="p_id" javaType="String"/>
         <result property="pStatus" column="p_status" javaType="String"/>
@@ -13,4 +13,7 @@
         <result property="pImg" column="p_img" javaType="String"/>
         <result property="className" column="class_name" javaType="String"/>
     </resultMap>
+    <select id="selectPerson" resultMap="waitInsertInfo" parameterType="WaitInsertInfo">
+        select * from `wait_insert_info` where `p_no` = #{unitNo} and `unit_name` = #{unitName} and `p_id` = #{pId} and `p_status` = #{pStatus}
+    </select>
 </mapper>

@@ -38,6 +38,10 @@ public class Teacher {
         this.pImg = pImg;
     }
 
+    public Teacher initTeacher(String wx_no,WaitInsertInfo w){
+        Teacher teacher = new Teacher(wx_no,w.getUnitName(),w.getUnitNo(),w.getpName(),w.getpId(),w.getpStatus(),w.getpSex(),w.getpTel(),w.getpImg());
+        return teacher;
+    }
     public String getWxNo() {
         return wxNo;
     }

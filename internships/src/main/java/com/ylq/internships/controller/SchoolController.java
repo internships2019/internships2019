@@ -30,6 +30,13 @@ public class SchoolController {
         return PageUtil.getSchoolJson(pageInfo.getList(),pageInfo.getTotal());
     }
 
+    //获取学校列表
+    @RequestMapping("/get_list.wx")
+    public List<String> getList_wx(){
+        logger.info("SchoolController的getList_wx执行===");
+        return schoolService.getAllName();
+    }
+
     //添加学校
     @RequestMapping("/add_school")
     public String addSchool(@RequestBody School school){

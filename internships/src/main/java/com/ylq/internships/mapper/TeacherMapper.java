@@ -1,5 +1,6 @@
 package com.ylq.internships.mapper;
 
+import com.ylq.internships.entity.Teacher;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -7,4 +8,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface TeacherMapper {
+    public void insertTea(Teacher teacher);
 }

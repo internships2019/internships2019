@@ -26,5 +26,9 @@
             <result property="displineName" column="displine_name" javaType="String"/>
         </association>
     </resultMap>
+    <insert id="insertStu" parameterType="Student">
+      INSERT INTO `student` ( `wx_no`, `s_no`, `s_name`, `s_sex`, `s_img`, `s_sc_name`, `s_state`, `stu_tel`, `class_name`, `bind_state` )
+      VALUES ( #{wxNo}, #{sNo}, #{sName}, #{sSex}, #{sImg}, #{sScName}, #{sState}, #{stuTel}, #{className}, #{bindState} ) ;
 
+    </insert>
 </mapper>
