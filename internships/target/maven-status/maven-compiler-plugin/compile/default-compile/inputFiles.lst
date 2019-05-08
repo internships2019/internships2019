@@ -9,6 +9,7 @@ E:\ideaProject\internships\src\main\java\com\ylq\internships\service\CompanyServ
 E:\ideaProject\internships\src\main\java\com\ylq\internships\service\DeductStandardService.java
 E:\ideaProject\internships\src\main\java\com\ylq\internships\mapper\ClassMapper.java
 E:\ideaProject\internships\src\main\java\com\ylq\internships\service\serviceImp\StuAllotServiceImp.java
+E:\ideaProject\internships\src\main\java\com\ylq\internships\utils\ExcelUtil.java
 E:\ideaProject\internships\src\main\java\com\ylq\internships\mapper\ScoreMapper.java
 E:\ideaProject\internships\src\main\java\com\ylq\internships\entity\StudentApartment.java
 E:\ideaProject\internships\src\main\java\com\ylq\internships\entity\CompanyJob.java
@@ -66,6 +67,7 @@ E:\ideaProject\internships\src\main\java\com\ylq\internships\mapper\ScoreStandar
 E:\ideaProject\internships\src\main\java\com\ylq\internships\service\serviceImp\ClockTimeServiceImp.java
 E:\ideaProject\internships\src\main\java\com\ylq\internships\controller\LoginController.java
 E:\ideaProject\internships\src\main\java\com\ylq\internships\entity\ClockTime.java
+E:\ideaProject\internships\src\main\java\com\ylq\internships\utils\QiNiuYunUtil.java
 E:\ideaProject\internships\src\main\java\com\ylq\internships\mapper\CompanyMapper.java
 E:\ideaProject\internships\src\main\java\com\ylq\internships\mapper\StuAllotMapper.java
 E:\ideaProject\internships\src\main\java\com\ylq\internships\controller\StuAllotController.java

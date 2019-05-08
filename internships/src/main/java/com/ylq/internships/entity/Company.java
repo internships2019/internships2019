@@ -87,4 +87,17 @@ public class Company {
     public void setComLatitude(Double comLatitude) {
         this.comLatitude = comLatitude;
     }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "comName='" + comName + '\'' +
+                ", comLocation='" + comLocation + '\'' +
+                ", comTel='" + comTel + '\'' +
+                ", comEmail='" + comEmail + '\'' +
+                ", comInfo='" + comInfo + '\'' +
+                ", comLongtitude=" + comLongtitude +
+                ", comLatitude=" + comLatitude +
+                '}';
+    }
 }

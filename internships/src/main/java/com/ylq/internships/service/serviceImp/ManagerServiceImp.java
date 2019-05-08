@@ -55,12 +55,14 @@ public class ManagerServiceImp implements ManagerService {
     }
 
     //删除管理员
+    @Transactional
     @Override
     public void removeManager(String manAccount) {
         managerMapper.deleteManager(manAccount);
     }
 
     //批删除管理员
+    @Transactional
     @Override
     public void removeBatchManager(String[] manAccounts) {
         managerMapper.deleteBatchManager(manAccounts);

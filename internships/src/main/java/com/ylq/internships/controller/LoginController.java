@@ -39,11 +39,20 @@ public class LoginController {
         return "4";
     }
 
-    @RequestMapping("/toManagerIndex.manager")
+
+    @RequestMapping("/managerIndex")
     public String toManagerIndex(HttpSession session, Map<String,Object> map){
         logger.info("toManagerIndex方法执行了");
         System.out.println(session.getAttribute("user").toString());
         map.put("session",session);
         return "/manager/index";
+    }
+
+    @RequestMapping("/schoolManagerIndex")
+    public String toSchoolManagerIndex(HttpSession session, Map<String,Object> map){
+        logger.info("toSchoolManagerIndex方法执行了");
+        System.out.println(session.getAttribute("user").toString());
+        map.put("session",session);
+        return "/school/index";
     }
 }

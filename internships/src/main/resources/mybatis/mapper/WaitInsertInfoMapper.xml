@@ -4,7 +4,7 @@
     <resultMap id="waitInsertInfo" type="WaitInsertInfo">
         <id property="id" column="id" javaType="Integer"/>
         <result property="unitName" column="unit_name" javaType="String"/>
-        <result property="unitNo" column="unit_no" javaType="String"/>
+        <result property="pNo" column="p_no" javaType="String"/>
         <result property="pName" column="p_name" javaType="String"/>
         <result property="pId" column="p_id" javaType="String"/>
         <result property="pStatus" column="p_status" javaType="String"/>
@@ -12,5 +12,71 @@
         <result property="pTel" column="p_tel" javaType="String"/>
         <result property="pImg" column="p_img" javaType="String"/>
         <result property="className" column="class_name" javaType="String"/>
+        <association property="wClass" javaType="Class">
+            <result property="collegeName" column="college_name" javaType="String"/>
+            <result property="displineName" column="displine_name" javaType="String"/>
+        </association>
     </resultMap>
+
+    <select id="getStudentAll" resultMap="waitInsertInfo">
+        SELECT `id`, `unit_name`, `p_no`, `p_name`, `p_id`, `p_status`, `p_sex`, `p_tel`, `p_img`, `class_name` FROM `wait_insert_info`
+        where unit_name=#{unitName} and p_status=#{pStatus}
+    </select>
+
+    <select id="getWaitInsertInfoByPNo" resultMap="waitInsertInfo">
+        SELECT * FROM `wait_insert_info`
+        where unit_name=#{unitName} and p_no=#{pNo}
+    </select>
+
+    <select id="getWaitInsertInfoByName" resultType="waitInsertInfo">
+        SELECT * FROM `wait_insert_info`
+        where unit_name=#{unitName} and p_status=#{pStatus} and p_name=#{pName}
+    </select>
+
+    <select id="getTeacherById" parameterType="Integer" resultMap="waitInsertInfo">
+        SELECT * FROM `wait_insert_info` where id=#{id}
+    </select>
+
+    <select id="getWaitInsertInfoById" parameterType="Integer" resultMap="waitInsertInfo">
+        SELECT  w.*,`college_name`,`displine_name` FROM `wait_insert_info` w
+        LEFT JOIN class c ON w.`unit_name`=c.`s_sc_name` AND w.`class_name`=c.`class_name`
+        WHERE w.id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="WaitInsertInfo">
+        INSERT INTO `wait_insert_info` (  `unit_name`, `p_no`, `p_name`, `p_id`, `p_status`, `p_sex`, `p_tel`, `p_img`, `class_name` )
+        VALUES ( #{unitName}, #{pNo},#{pName},#{pId},#{pStatus},#{pSex},#{pTel},#{pImg}, #{className}) ;
+    </insert>
+
+    <insert id="batchInsert" parameterType="java.util.List">
+        INSERT INTO `wait_insert_info` ( `unit_name`, `p_no`, `p_name`, `p_id`, `p_status`, `p_sex`, `p_tel`, `class_name` )
+        VALUES
+        <foreach collection="list" item="waitInfo" separator="," >
+            ( #{waitInfo.unitName}, #{waitInfo.pNo},#{waitInfo.pName},#{waitInfo.pId},#{waitInfo.pStatus},
+            #{waitInfo.pSex},#{waitInfo.pTel},#{waitInfo.className} )
+        </foreach>
+        ON DUPLICATE KEY UPDATE p_name=values(p_name),p_id=values(p_id),p_sex=values(p_sex),p_tel=values(p_tel),class_name=values(class_name)
+    </insert>
+
+    <insert id="batchInsertTeacher" parameterType="java.util.List">
+        INSERT INTO `wait_insert_info` ( `unit_name`, `p_no`, `p_name`, `p_id`, `p_status`, `p_sex`, `p_tel`)
+        VALUES
+        <foreach collection="list" item="waitInfo" separator="," >
+            ( #{waitInfo.unitName}, #{waitInfo.pNo},#{waitInfo.pName},#{waitInfo.pId},#{waitInfo.pStatus},
+            #{waitInfo.pSex},#{waitInfo.pTel})
+        </foreach>
+        ON DUPLICATE KEY UPDATE p_name=values(p_name),p_id=values(p_id),p_sex=values(p_sex),p_tel=values(p_tel)
+    </insert>
+
+    <update id="updateImg" >
+        UPDATE  `wait_insert_info` SET `p_img` = #{path} WHERE `id` = #{id} ;
+    </update>
+
+    <delete id="batchDelete">
+        DELETE FROM `wait_insert_info`
+        WHERE  `id` in
+        <foreach collection="arr" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>

@@ -35,6 +35,22 @@ public class MySpringMvcConfigurer implements WebMvcConfigurer {
         registry.addViewController("/edit-school").setViewName("/manager/school-edit");
         registry.addViewController("/edit-manager").setViewName("/manager/manager-edit");
         registry.addViewController("/add-school-manager").setViewName("/manager/school-manager-add");
+        registry.addViewController("/company-list").setViewName("/manager/company-list");
+        registry.addViewController("/company-add").setViewName("/manager/company-add");
+        registry.addViewController("/company-edit").setViewName("/manager/company-edit");
+        registry.addViewController("/student-enter").setViewName("/school/student-enter");
+        registry.addViewController("/class-list").setViewName("/school/class-list");
+        registry.addViewController("/class-add").setViewName("/school/class-add");
+        registry.addViewController("/class-explain").setViewName("/school/class-explain");
+        registry.addViewController("/student-enter-add").setViewName("/school/student-enter-add");
+        registry.addViewController("/student-information").setViewName("/school/student-information");
+        registry.addViewController("/image-upload").setViewName("/school/image-upload");
+        registry.addViewController("/student-explain").setViewName("/school/student-explain");
+        registry.addViewController("/class-edit").setViewName("/school/class-edit");
+        registry.addViewController("/teacher-enter").setViewName("/school/teacher-enter");
+        registry.addViewController("/teacher-add").setViewName("/school/teacher-add");
+        registry.addViewController("/teacher-explain").setViewName("/school/teacher-explain");
+        registry.addViewController("/teacher-information").setViewName("/school/teacher-information");
     }
 
     @Override

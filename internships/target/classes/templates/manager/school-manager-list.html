@@ -16,8 +16,8 @@
     <!--数据表格左侧工具栏-->
     <script type="text/html" id="toolbarDemo">
         <div class="layui-btn-container">
-            <button class="layui-btn layui-btn-sm" lay-event="addManager">添加管理员</button>
-            <button class="layui-btn layui-btn-sm layui-btn-danger" lay-event="deleteManager">批量删除管理员</button>
+            <button class="layui-btn layui-btn-sm" lay-event="addManager"><i class="layui-icon">&#xe654;</i>添加管理员</button>
+            <button class="layui-btn layui-btn-sm layui-btn-danger" lay-event="deleteManager"><i class="layui-icon">&#xe640;</i>批量删除管理员</button>
         </div>
     </script>
     <!--数据表格操作选项中的按钮-->
@@ -83,7 +83,7 @@
                                 arr.push(item.manAccount);
                             });
                             console.log(arr);
-                            layer.confirm('您确定要删除账号:'+JSON.stringify(arr)+'吗?',function (index) {
+                            layer.confirm('您确定要删除账号:'+JSON.stringify(arr)+'?',function (index) {
                                 $.ajax({
                                     url:'/internships/manager/batch_manager.manager',
                                     type:'post',
@@ -92,6 +92,7 @@
                                     dataType:'text',
                                     success:function () {
                                         layer.msg("删除成功!",{icon:1});
+                                        tableIns.reload();
                                     }
                                 });
                                 layer.close(index);

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>已录学生</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" href="./css/xadmin.css">
+    <script th:src="@{/layui/layui.js}" src="layui/layui.js" charset="utf-8"></script>
+    <script th:src="@{/js/jquery.js}" src="layui/layui.js" charset="utf-8"></script>
+</head>
+<body style="margin: 20px">
+    <a class="layui-btn layui-btn-sm " style="float:right" href="javascript:location.replace(location.href);" title="刷新"><i class="layui-icon" style="line-height:30px">&#xe669;</i></a>
+    <div class="demoTable">
+        <div class="layui-inline">
+            <input class="layui-input" style="width: 200px;height: 30px;" placeholder="请输入学生名称" name="studentName" id="studentName" autocomplete="off">
+        </div>
+        <button class="layui-btn layui-btn-sm" style="margin-left: 10px" id="search"><i class="layui-icon">&#xe615;</i>搜索</button>
+    </div>
+    <table class="layui-hide"  id="student" lay-filter="student"></table>
+
+    <!--数据表格左侧工具栏-->
+    <script type="text/html" id="toolbarDemo">
+        <div class="layui-btn-container">
+            <button class="layui-btn layui-btn-sm" lay-event="addStudent"><i class="layui-icon">&#xe654;</i>添加学生</button>
+            <button class="layui-btn layui-btn-sm layui-btn-normal" lay-event="addBatchStudent" id="addBatchStudent"><i class="layui-icon">&#xe61f;</i>批量导入</button>
+            <button class="layui-btn layui-btn-sm layui-btn-warm" lay-event="explain"><i class="layui-icon">&#xe702;</i>导入说明</button>
+            <button class="layui-btn layui-btn-sm layui-btn-danger" lay-event="deleteBatchStudent"><i class="layui-icon">&#xe640;</i>批量删除</button>
+        </div>
+    </script>
+    <!--数据表格操作选项中的按钮-->
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="information">详细信息</a>
+        <a class="layui-btn layui-btn-xs layui-btn-warm" lay-event="updateImage">更换照片</a>
+        <a class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+    <script>
+        //获取当前用户信息
+        $.ajax({
+            url:'/internships/manager/get_manager_information'
+            ,success:function (res) {
+                var user=JSON.parse(res);//解析后台传回的json字符串
+                layui.use(['table','jquery','layer','upload'],function () {
+                    var table=layui.table;
+                    var $=layui.jquery;
+                    var upload=layui.upload;
+                    var layer=layui.layer;
+
+                    //初始化表格
+                    var tableIns=table.render({
+                            elem: '#student'
+                            ,url:'/internships/waitInsertInfo/get_student_all'
+                            ,height:400
+                            ,toolbar: '#toolbarDemo'
+                            ,page:true
+                            ,cellMinWidth:200
+                            ,where:{
+                                unitName:user.manNuitName,
+                                pStatus:'学生'
+                            }
+                            ,cols:[
+                                [
+                                    {type: 'checkbox', fixed: 'left'}
+                                    ,{fixed:'left',field:'pNo',title: '学号',align:"center",width:150}
+                                    ,{field:'pName',title: '姓名',align:"center",width:100}
+                                    ,{field:'pSex', title: '性别',align:"center",width:80}
+                                    ,{field:'pTel',title: '联系电话',align:"center"}
+                                    ,{field:'pId',title: '身份证号',align:"center",width:200}
+                                    ,{field:'className',title: '班级',align:"center",width:150}
+                                    ,{fixed:'right',title:'操作',toolbar:'#barDemo',align:"center",width:270}
+                                ]
+                            ]
+                        });
+
+                    //左侧工具栏事件
+                    table.on('toolbar(student)',function (obj) {
+                        switch (obj.event) {
+                            //添加学生按钮
+                            case 'addStudent':
+                                layer.open({
+                                    type: 2,
+                                    title: '添加待录学生',
+                                    shade:0.5,//设置弹窗背景遮蔽
+                                    shadeClose: true,
+                                    maxmin: true, //开启最大化最小化按钮
+                                    area: ['800px', '460px'],//
+                                    scrollbar: false,
+                                    content: '/internships/student-enter-add'
+                                    ,success:function (layero,index) {
+                                        // 获取子页面的iframe
+                                        var iframe = window['layui-layer-iframe' + index];
+                                        // 向子页面的全局函数child传参
+                                        iframe.child(user);
+                                    }
+                                });
+                                break;
+                            //导入说明按钮
+                            case 'explain':
+                                layer.open({
+                                    type: 2
+                                    ,title: '导入说明'
+                                    ,shade:0.5//设置弹窗背景遮蔽
+                                    ,shadeClose: true
+                                    ,maxmin: true //开启最大化最小化按钮
+                                    ,area: ['800px', '500px']//
+                                    ,scrollbar: false
+                                    ,content: '/internships/student-explain'
+                                });
+                                break;
+                        }
+                    });
+
+                    //监听行单击事件
+                    table.on('tool(student)', function(obj){
+                        switch (obj.event) {
+                            //学生详细信息
+                            case 'information':
+                                layer.open({
+                                    type: 2
+                                    ,title: '学生详细信息'
+                                    ,shade:0.5//设置弹窗背景遮蔽
+                                    ,shadeClose: true
+                                    ,maxmin: true //开启最大化最小化按钮
+                                    ,area: ['800px', '430px']//
+                                    ,scrollbar: false
+                                    ,content: '/internships/student-information'
+                                    ,success:function (layero,index) {
+                                        // 获取子页面的iframe
+                                        var iframe = window['layui-layer-iframe' + index];
+                                        // 向子页面的全局函数child传参
+                                        iframe.child(obj.data.id);
+                                    }
+                                });
+                                break;
+                            //更换照片
+                            case 'updateImage':
+                                layer.open({
+                                    type: 2
+                                    ,title: '学生详细信息'
+                                    ,shade:0.5//设置弹窗背景遮蔽
+                                    ,shadeClose: true
+                                    ,area: ['300px', '300px']//
+                                    ,scrollbar: false
+                                    ,content: '/internships/image-upload'
+                                    ,success:function (layero,index) {
+                                        // 获取子页面的iframe
+                                        var iframe = window['layui-layer-iframe' + index];
+                                        // 向子页面的全局函数child传参
+                                        iframe.child(obj.data);
+                                    },end:function () {
+                                        if (callData!=null){
+                                            console.log(callData);
+                                            obj.update({
+                                                pImg:callData
+                                            });
+                                            callData=null;
+                                        }
+                                    }
+                                });
+                                break;
+                            //修改功能
+                            case 'edit':
+                                // layer.open({
+                                //     type: 2
+                                //     ,title: '修改学校'
+                                //     ,shade:0.5//设置弹窗背景遮蔽
+                                //     ,shadeClose: true
+                                //     ,maxmin: true //开启最大化最小化按钮
+                                //     ,area: ['800px', '430px']//
+                                //     ,scrollbar: false
+                                //     ,content: '/internships/edit-school'
+                                //     ,success:function (layero,index) {
+                                //         // 获取子页面的iframe
+                                //         var iframe = window['layui-layer-iframe' + index];
+                                //         // 向子页面的全局函数child传参
+                                //         iframe.child(obj.data);
+                                //     }
+                                //     ,end:function () {//弹窗关闭，数据回显
+                                //         if (callData!=null){
+                                //             obj.update({
+                                //                 scTel:callData.scTel,
+                                //                 scEmail:callData.scEmail
+                                //             });
+                                //             callData=null;
+                                //         }
+                                //     }
+                                // });
+                                break;
+                            //删除功能
+                            case 'del':
+                                // layer.confirm('您确定要删除'+obj.data.scName+'吗?',function (index) {
+                                //     $.ajax({
+                                //         url:'/internships/school/remove_school',
+                                //         type:'post',
+                                //         contentType: 'application/json',
+                                //         data:obj.data.scName,
+                                //         dataType:'text',
+                                //         success:function () {
+                                //             layer.msg("删除成功!",{icon:1});
+                                //         }
+                                //     });
+                                //     obj.del();
+                                //     layer.close(index);
+                                // });
+                                break;
+                        }
+                    });
+
+                    //批导入学生信息
+                    upload.render({
+                        elem: '#addBatchStudent'
+                        ,url: '/internships/waitInsertInfo/batch_add_waitInsertInfo'
+                        ,accept: 'file' //普通文件
+                        ,exts: 'xls|xlsx' //只允许上传压缩文件
+                        ,data:{
+                            schoolName:user.manNuitName
+                            ,pStatus:'学生'
+                        },before:function () {
+                            layer.msg('数据正在上传中.....');
+                        },done: function(res){//上传后回调的方法
+                            console.log("done执行了");
+                            console.log(res)
+                            if (res!=null){//批量导入成功
+                                layer.msg("批导入学生信息成功!",{icon:1});
+                                tableIns.reload();
+                            }else {
+                                layer.msg("excel表上传格式有误!",{icon:2});
+                            }
+                        }
+                        ,error:function (res) {
+                            console.log(res);
+                            layer.msg('上传失败');
+                        }
+                    });
+
+                    //通过姓名查询
+                    $('#search').click(function () {
+                        tableIns.reload({
+                            url:'/internships/waitInsertInfo/find_waitInfo_byName'
+                            ,where:{unitName:user.manNuitName,pName:$('#studentName').val(),pStatus:'学生'}
+                        });
+                    });
+                });
+            }
+        });
+
+
+    </script>
+</body>
+</html>

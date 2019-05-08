@@ -9,7 +9,7 @@ public class WaitInsertInfo {
     //单位名称
     private String unitName;
     //人员编号
-    private String unitNo;
+    private String pNo;
     //姓名
     private String pName;
     //身份证号
@@ -24,14 +24,16 @@ public class WaitInsertInfo {
     private String pImg;
     //学生班级名称
     private String className;
+    //录入学生班级实体
+    private Class wClass;
 
     public WaitInsertInfo() {
     }
 
-    public WaitInsertInfo(Integer id, String unitName, String unitNo, String pName, String pId, String pStatus, String pSex, String pTel, String pImg, String className) {
+    public WaitInsertInfo(Integer id, String unitName, String pNo, String pName, String pId, String pStatus, String pSex, String pTel, String pImg, String className,Class aClass) {
         this.id = id;
         this.unitName = unitName;
-        this.unitNo = unitNo;
+        this.pNo = pNo;
         this.pName = pName;
         this.pId = pId;
         this.pStatus = pStatus;
@@ -39,6 +41,7 @@ public class WaitInsertInfo {
         this.pTel = pTel;
         this.pImg = pImg;
         this.className = className;
+        this.wClass=aClass;
     }
 
     public Integer getId() {
@@ -57,12 +60,12 @@ public class WaitInsertInfo {
         this.unitName = unitName;
     }
 
-    public String getUnitNo() {
-        return unitNo;
+    public String getpNo() {
+        return pNo;
     }
 
-    public void setUnitNo(String unitNo) {
-        this.unitNo = unitNo;
+    public void setpNo(String pNo) {
+        this.pNo = pNo;
     }
 
     public String getpName() {
@@ -119,5 +122,30 @@ public class WaitInsertInfo {
 
     public void setClassName(String className) {
         this.className = className;
+    }
+
+    public Class getwClass() {
+        return wClass;
+    }
+
+    public void setwClass(Class wClass) {
+        this.wClass = wClass;
+    }
+
+    @Override
+    public String toString() {
+        return "WaitInsertInfo{" +
+                "id=" + id +
+                ", unitName='" + unitName + '\'' +
+                ", pNo='" + pNo + '\'' +
+                ", pName='" + pName + '\'' +
+                ", pId='" + pId + '\'' +
+                ", pStatus='" + pStatus + '\'' +
+                ", pSex='" + pSex + '\'' +
+                ", pTel='" + pTel + '\'' +
+                ", pImg='" + pImg + '\'' +
+                ", className='" + className + '\'' +
+                ", wClass=" + wClass +
+                '}';
     }
 }
