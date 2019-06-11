@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加企业</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" th:href="@{/css/font.css}" href="./css/font.css">
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" href="./css/xadmin.css">
+    <script th:src="@{/layui/layui.js}" src="layui/layui.js" charset="utf-8"></script>
+    <style>
+        .layui-form-label{
+            width: 100px;
+        }
+    </style>
+</head>
+<body style="margin: 20px">
+    <form class="layui-form layui-form-pane" id="frm" lay-filter="frm">
+        <input type="hidden" id="sScName" name="sScName">
+        <div class="layui-form-item">
+            <label class="layui-form-label">实习单位：</label>
+            <div class="layui-input-inline">
+                <select name="comName" id="comName" lay-verify="required" lay-search="" lay-filter="comName">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">岗位名称：</label>
+            <div class="layui-input-inline">
+                <input type="text"  maxlength="20" name="jobName" lay-filter="jobName" lay-verify="required" placeholder="请输岗位名称" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">工作地点：</label>
+            <div class="layui-input-block">
+                <input type="tel" maxlength="50" name="workPlace" lay-verify="required" placeholder="请输入工作地点" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">截止时间：</label>
+                <div class="layui-inline">
+                    <input type="text" name="endTime" id="endTime" lay-verify="required" class="layui-input test-item" placeholder="yyyy-MM-dd">
+                </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label" >招收人数：</label>
+            <div class="layui-input-inline">
+                <input type="text" maxlength="10" name="recruitNum" placeholder="请招收人数" lay-verify="required|number" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label" >岗位简述：</label>
+            <div class="layui-input-block">
+                <textarea placeholder="请输入内容" maxlength="200" lay-verify="required" name="workDescription" class="layui-textarea"></textarea>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <button class="layui-btn" lay-submit="" lay-filter="demo">添加</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </form>
+    <script>
+            layui.use(['form','layer','jquery','laydate'],function () {
+                var form=layui.form;
+                var layer=layui.layer;
+                var $=layui.jquery;
+                var laydate=layui.laydate;
+
+                $.ajax({
+                    url:'/internships/manager/get_manager_information'
+                    ,success:function (res) {
+                        var user=JSON.parse(res);
+                        console.log(user.manNuitName);
+                        $('#sScName').val(user.manNuitName);
+                    }
+                });
+
+                //动态添加下拉列表信息
+                $.ajax({
+                    url:'/internships/company/find_all_company'
+                    ,success:function (res) {
+                        var companyNames=res;
+                        $.each(companyNames,function (i,item) {
+                            $('#comName').append(new Option(item,item));
+                            form.render('select');
+                        });
+                    }
+                });
+
+                //初始化日期时间选择器
+                laydate.render({
+                    elem:'#endTime'
+                    ,type: 'datetime'
+                });
+
+
+                //表单提交添加企业
+                form.on('submit(demo)',function (fdata) {
+                    console.log(fdata.field);
+                    var endTime=fdata.field.date+' '+fdata.field.time;
+                    console.log(endTime);
+                    $.ajax({
+                        url:'/internships/companyJob/add_company_job'
+                        ,type:'post'
+                        ,contentType: 'application/json'
+                        ,dataType:'text'
+                        ,data:JSON.stringify(fdata.field)
+                        ,success:function () {
+                            document.getElementById("frm").reset();
+                            layer.msg("岗位添加成功！",{icon:1});
+                        }
+                    });
+                    return false;
+                });
+
+            });
+    </script>
+</body>
+</html>

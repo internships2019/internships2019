@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>已录学生</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" href="./css/xadmin.css">
+    <script th:src="@{/layui/layui.js}" src="layui/layui.js" charset="utf-8"></script>
+    <script th:src="@{/js/jquery.js}" src="layui/layui.js" charset="utf-8"></script>
+</head>
+<body style="margin: 20px">
+    <a class="layui-btn layui-btn-sm " style="float:right" href="javascript:location.replace(location.href);" title="刷新"><i class="layui-icon" style="line-height:30px">&#xe669;</i></a>
+    <div class="demoTable">
+        <div class="layui-inline">
+            <input class="layui-input" style="width: 200px;height: 30px;" placeholder="请输入学生名称" name="studentName" id="studentName" autocomplete="off">
+        </div>
+        <button class="layui-btn layui-btn-sm" style="margin-left: 10px" id="search"><i class="layui-icon">&#xe615;</i>搜索</button>
+    </div>
+    <table class="layui-hide"  id="student" lay-filter="student"></table>
+
+    <!--数据表格左侧工具栏-->
+    <script type="text/html" id="toolbarDemo">
+        <div class="layui-btn-container">
+            <button class="layui-btn layui-btn-sm layui-btn-danger" lay-event="deleteBatchStudent"><i class="layui-icon">&#xe640;</i>批量删除</button>
+        </div>
+    </script>
+    <!--数据表格操作选项中的按钮-->
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="information">详细信息</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+    <script>
+        //获取当前用户信息
+        $.ajax({
+            url:'/internships/manager/get_manager_information'
+            ,success:function (res) {
+                var user=JSON.parse(res);//解析后台传回的json字符串
+                layui.use(['table','jquery','layer'],function () {
+                    var table=layui.table;
+                    var $=layui.jquery;
+                    var layer=layui.layer;
+
+                    //初始化表格
+                    var tableIns=table.render({
+                            elem: '#student'
+                            ,url:'/internships/student/find_student_list'
+                            ,height:400
+                            ,toolbar: '#toolbarDemo'
+                            ,page:true
+                            ,cellMinWidth:80
+                            ,where:{
+                                sScName:user.manNuitName,
+                                sState:'待实习'
+                            }
+                            ,cols:[
+                                [
+                                    {type: 'checkbox', fixed: 'left'}
+                                    ,{field:'sNo',title: '学号',align:"center"}
+                                    ,{field:'sName',title: '姓名',align:"center"}
+                                    ,{field:'sSex', title: '性别',align:"center"}
+                                    ,{field:'stuTel',title: '联系电话',align:"center"}
+                                    ,{field:'className',title: '班级',align:"center"}
+                                    ,{field:'sState',title: '分配状态',align:"center"}
+                                    ,{field:'right',title:'操作',toolbar:'#barDemo',align:"center",width:160}
+                                ]
+                            ]
+                        });
+
+                    //左侧工具栏事件
+                    table.on('toolbar(student)',function (obj) {
+                        switch (obj.event) {
+                            //批删除按钮
+                            case 'deleteBatchStudent':
+                                var checkStatus = table.checkStatus(obj.config.id);
+                                if(checkStatus.data==""){
+                                    layer.msg("请选中至少一行!",{icon:5});
+                                }else {
+                                    var arr=new Array();
+                                    var names=new Array();
+                                    $.each(checkStatus.data,function (i,item) {
+                                        arr.push(item.id);
+                                        names.push(item.pName);
+                                    });
+                                    console.log(arr);
+                                    layer.confirm('您确定要删除:'+JSON.stringify(names)+'学生吗?',function (index) {
+                                        $.ajax({
+                                            url:'/internships/waitInsertInfo/batch_remove_waitInsertInfo',
+                                            data:JSON.stringify(arr),
+                                            type:'post',
+                                            contentType: 'application/json',
+                                            dataType:'text',
+                                            beforeSend:function(){
+                                                layer.msg("正在删除中...");
+                                            },
+                                            success:function () {
+                                                layer.msg("删除成功!",{icon:1});
+                                                tableIns.reload();
+                                            }
+                                        });
+                                        layer.close(index);
+                                    });
+                                }
+                                break;
+                        }
+                    });
+
+                    //监听行单击事件
+                    table.on('tool(student)', function(obj){
+                        switch (obj.event) {
+                            //学生详细信息
+                            case 'information':
+                                layer.open({
+                                    type: 2
+                                    ,title: '待实习学生信息'
+                                    ,shade:0.5//设置弹窗背景遮蔽
+                                    ,shadeClose: true
+                                    ,maxmin: true //开启最大化最小化按钮
+                                    ,area: ['800px', '430px']//
+                                    ,scrollbar: false
+                                    ,content: '/internships/student-stay-information'
+                                    ,success:function (layero,index) {
+                                        // 获取子页面的iframe
+                                        var iframe = window['layui-layer-iframe' + index];
+                                        // 向子页面的全局函数child传参
+                                        iframe.child(obj.data.wxNo);
+                                    }
+                                });
+                                break;
+                            //删除功能
+                            case 'del':
+                                layer.confirm('您确定要删除<span style="color: red;">'+obj.data.sName+'</span>吗?',function (index) {
+                                    console.log(obj.data.wxNo);
+                                    $.ajax({
+                                        url:'/internships/student/remove_student',
+                                        type:'post',
+                                        contentType: 'application/json',
+                                        data:JSON.stringify(obj.data.wxNo),
+                                        dataType:'text',
+                                        success:function () {
+                                            layer.msg("删除成功!",{icon:1});
+                                        }
+                                    });
+                                    obj.del();
+                                    layer.close(index);
+                                });
+                                break;
+                        }
+                    });
+
+                    //通过姓名查询
+                    $('#search').click(function () {
+                        tableIns.reload({
+                            url:'/internships/student/find_student_name'
+                            ,where:{sScName:user.manNuitName,sName:$('#studentName').val(),sState:'待实习'}
+                        });
+                    });
+                });
+            }
+        });
+
+
+    </script>
+</body>
+</html>

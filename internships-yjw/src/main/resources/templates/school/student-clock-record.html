@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学生打卡记录</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" th:href="@{/css/font.css}" href="./css/font.css">
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" href="./css/xadmin.css">
+    <script th:src="@{/layui/layui.js}" src="layui/layui.js" charset="utf-8"></script>
+</head>
+<body style="margin: 20px;">
+    <table class="layui-hide"  id="clockRecord" lay-filter="clockRecord"></table>
+    <script>
+        function child(d) {
+            console.log(d);
+            layui.use(['table','jquery'],function () {
+                var table=layui.table;
+                var $=layui.jquery;
+
+                table.render({
+                    elem:'#clockRecord'
+                    ,url:'/internships/clockRecord/find_student_clockRecord'
+                    ,height:350
+                    ,cellMinWidth: 80
+                    ,page:true
+                    ,skin:'line'
+                    ,where:{
+                        wxNo:d
+                    }
+                    ,cols: [
+                        [
+                            {field:'clockLocation',title: '打卡地点',align:"center",width:250}
+                            ,{field:'clockTime', title: '打卡时间',align:"center",templet: "<div>{{layui.util.toDateString(d.clockTime, 'yyyy-MM-dd HH:mm:ss')}}</div>"}
+                            ,{field:'clockType',title:'打卡类型',align:"center"}
+                            ,{field:'clockStatus',width:150, title: '打卡状态',align:"center",templet:function (d) {
+                                if (d.clockStatus=='正常'){
+                                    return '<div class="layui-bg-blue" style="border-radius:5px">'+d.clockStatus+'</div>'
+                                }
+                                return '<div class="layui-bg-red" style="border-radius:5px">'+d.clockStatus+'</div>'
+                            }}
+                            ,{field:'deductScore',title: '异常扣分',align:"center"}
+                        ]
+                    ]
+                });
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylq.internships.mapper.StudentApartmentMapper">
+    <resultMap id="studentApartment" type="StudentApartment">
+        <id property="id" column="id" javaType="Integer"/>
+        <result property="liveLocation" column="live_location" javaType="String"/>
+        <result property="sWx" column="s_wx" javaType="String"/>
+        <result property="liveLongtitude" column="live_longtitude" javaType="Double"/>
+        <result property="liveLatitude" column="live_latitude" javaType="Double"/>
+    </resultMap>
+
+    <select id="getAddress" resultType="String">
+        select live_location from student_apartment where s_wx=#{wxNo}
+    </select>
+
+    <insert id="insertAddress" parameterType="StudentApartment">
+        INSERT INTO `student_apartment` ( `live_location`, `s_wx`, `live_longtitude`, `live_latitude` )
+        VALUES ( #{liveLocation}, #{sWx},#{liveLongtitude},#{liveLatitude} ) ;
+    </insert>
+
+    <update id="updateAddress" parameterType="StudentApartment">
+        UPDATE  `student_apartment`
+        <set>
+            `live_location` = #{liveLocation},
+            `live_longtitude` = #{liveLongtitude},
+            `live_latitude` = #{liveLatitude}
+        </set>
+        WHERE `id` = #{id} ;
+    </update>
+</mapper>

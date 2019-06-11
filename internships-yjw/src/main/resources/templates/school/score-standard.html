@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>分值占比</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" th:href="@{/css/font.css}" href="./css/font.css">
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" href="./css/xadmin.css">
+    <script th:src="@{/layui/layui.js}" src="layui/layui.js" charset="utf-8"></script>
+</head>
+<body style="margin: 20px">
+    <div style="padding: 20px; background-color: #F2F2F2;">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-header"><span id="schoolName"></span>当前成绩分值占比情况</div>
+                    <div class="layui-card-body">
+                        考勤分值占比：<span id="attanPecent"></span><br>
+                        考核分值占比：<span id="apprPecent"></span><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form class="layui-form layui-form-pane" style="margin-top: 30px" lay-filter="frm">
+        <input type="hidden"  name="scName">
+        <div class="layui-form-item">
+            <label class="layui-form-label" style="width: 150px">考勤分值占比</label>
+            <div class="layui-input-inline">
+                <input type="text" name="attanPecent" lay-verify="required|pecent" autocomplete="off" placeholder="请输入小于1的小数" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <button class="layui-btn" oninput="myFunction()" lay-submit="" lay-filter="demo">修改分值占比</button>
+        </div>
+    </form>
+    <script>
+        function child(d) {
+            console.log(d);
+            layui.use(['jquery','form'],function () {
+               var form=layui.form;
+               var $=layui.jquery;
+
+               $('#schoolName').html(d);
+
+                //将行数据赋值到弹窗表单中
+                form.val("frm",{
+                    "scName":d
+                });
+
+               $.ajax({
+                   url:'/internships/scoreStandard/find_scoreStandard',
+                   data:{scName:d},
+                   success:function (res) {
+                       console.log(res);
+                       $('#attanPecent').html(res.attanPecent);
+                       $('#apprPecent').html(res.apprPecent);
+                   }
+               });
+
+                //表单提修改分值占比
+                form.on('submit(demo)',function (fdata) {
+                    console.log(fdata.field);
+                    $.ajax({
+                        url:'/internships/scoreStandard/edit_scoreStandard'
+                        ,type:'post'
+                        ,contentType: 'application/json'
+                        ,dataType:'text'
+                        ,data:JSON.stringify(fdata.field)
+                        ,success:function () {
+                            layer.alert("成绩分值占比修改成功！",{icon:1},function () {
+                                window.parent.location.reload();
+                                var index = parent.layer.getFrameIndex(window.name);//关闭当前弹出层
+                                parent.layer.close(index);//执行弹出层关闭
+                            });
+                        }
+                    });
+                    return false;
+                });
+
+
+                form.verify({
+                    pecent:function (value,item) {
+                        console.log(value.length);
+                        if (value>1){
+                            return '分值占比必须为小于一的小数';
+                        }else if (value<0) {
+                            return '分值占比必须为大于零的小数';
+                        }else if (value.length>4) {
+                            return '分值占比小数位不超过两位';
+                        }
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>

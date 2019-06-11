@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>班级列表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" th:href="@{/css/font.css}" href="./css/font.css">
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" href="./css/xadmin.css">
+    <script th:src="@{/layui/layui.js}" src="layui/layui.js" charset="utf-8"></script>
+</head>
+<body style="margin: 20px;">
+    <a class="layui-btn layui-btn-sm " style="float:right" href="javascript:location.replace(location.href);" title="刷新"><i class="layui-icon" style="line-height:30px">&#xe669;</i></a>
+    <div class="demoTable">
+        <div class="layui-inline">
+            <input class="layui-input" style="width: 200px;height: 30px;" placeholder="请输入班级名称" name="className" id="className" autocomplete="off">
+        </div>
+        <button class="layui-btn layui-btn-sm" style="margin-left: 10px" id="search"><i class="layui-icon">&#xe615;</i>搜索</button>
+    </div>
+    <table class="layui-hide"  id="class" lay-filter="class"></table>
+    <!--数据表格左侧工具栏-->
+    <script type="text/html" id="toolbarDemo">
+        <div class="layui-btn-container">
+            <button class="layui-btn layui-btn-sm" lay-event="addClass"><i class="layui-icon">&#xe654;</i>添加班级</button>
+            <button class="layui-btn layui-btn-sm layui-btn-normal" lay-event="addBatchClass" id="upload1"><i class="layui-icon">&#xe61f;</i>批量导入</button>
+            <button class="layui-btn layui-btn-sm layui-btn-warm" lay-event="explain" id="explain"><i class="layui-icon">&#xe702;</i>导入说明</button>
+            <button class="layui-btn layui-btn-sm layui-btn-danger" lay-event="deleteBatchClass"><i class="layui-icon">&#xe640;</i>批量删除</button>
+        </div>
+    </script>
+    <!--数据表格操作选项中的按钮-->
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+    <script>
+        var callData=null;
+        layui.use(['form','table','layer','jquery','upload'],function () {
+            var form=layui.form;
+            var table=layui.table;
+            var layer=layui.layer;
+            var $=layui.jquery;
+            var upload=layui.upload;
+            var tableIns=null;
+            var user=null;
+
+            $.ajax({
+                url:"/internships/manager/get_manager_information"
+                ,success:function (res) {
+                    user=JSON.parse(res);
+                    //表格构造
+
+                    tableIns=table.render({
+                        elem: '#class'
+                        ,url:'/internships/class/find_all'
+                        ,height:400
+                        ,cellMinWidth: 80
+                        ,toolbar:'default'
+                        ,page:true
+                        ,toolbar: '#toolbarDemo'
+                        ,where:{
+                            sScName:user.manNuitName
+                        }
+                        ,cols: [
+                            [
+                                {type: 'checkbox', fixed: 'left'}
+                                ,{field:'className',width:200,title: '班级名',align:"center"}
+                                ,{field:'collegeName', title: '学院名',align:"center"}
+                                ,{field:'displineName',width:190, title: '专业名',align:"center"}
+                                ,{field:'classStuNum',width:90, title: '班级人数',align:"center"}
+                                ,{field:'instructorName', title: '辅导员姓名',align:"center"}
+                                ,{field:'instructorTel',width:120, title: '辅导员电话',align:"center"}
+                                ,{field:'right',title:'操作',toolbar:'#barDemo',align:"center"}
+                            ]
+                        ]
+                    });
+
+                    //批量导入
+                    var uploadIns=upload.render({
+                        elem: '#upload1'
+                        ,url: '/internships/class/add_batch_class'
+                        ,accept: 'file' //普通文件
+                        ,exts: 'xls|xlsx' //只允许上传压缩文件
+                        ,data:{
+                            schoolName:user.manNuitName
+                        },before:function () {
+                            layer.msg('数据正在上传中.....');
+                        },done: function(res){//上传后回调的方法
+                            console.log("done执行了");
+                            console.log(res)
+                            if (res==1){//批量导入成功
+                                layer.msg("批导入班级信息成功!",{icon:1});
+                                tableIns.reload();
+                            }else {
+                                layer.msg("excel表上传格式有误!",{icon:2});
+                            }
+                        }
+                        ,error:function (res) {
+                            console.log(res);
+                            layer.msg('上传失败');
+                        }
+                    });
+
+
+                }
+            });
+
+            //班级名搜索
+            $('#search').click(function () {
+                tableIns.reload({
+                    url:'/internships/class/find_class'
+                    ,where:{sScName:user.manNuitName,className:$('#className').val()}
+                });
+            });
+
+
+            //左侧工具栏事件
+            table.on('toolbar(class)',function (obj) {
+                switch (obj.event) {
+                    //添加班级按钮
+                    case 'addClass':
+                        layer.open({
+                            type: 2,
+                            title: '添加班级',
+                            shade:0.5,//设置弹窗背景遮蔽
+                            shadeClose: true,
+                            maxmin: true, //开启最大化最小化按钮
+                            area: ['800px', '460px'],//
+                            scrollbar: false,
+                            content: '/internships/class-add'
+                            ,success:function (layero,index) {
+                                // 获取子页面的iframe
+                                var iframe = window['layui-layer-iframe' + index];
+                                // 向子页面的全局函数child传参
+                                iframe.child(user);
+                            }
+                        });
+                        break;
+                    //导入说明按钮
+                    case 'explain':
+                        layer.open({
+                            type: 2
+                            ,title: '导入说明'
+                            ,shade:0.5//设置弹窗背景遮蔽
+                            ,shadeClose: true
+                            ,maxmin: true //开启最大化最小化按钮
+                            ,area: ['800px', '450px']//
+                            ,scrollbar: false
+                            ,content: '/internships/class-explain'
+                        });
+                        break;
+                    //批删除按钮
+                    case 'deleteBatchClass':
+                        var checkStatus = table.checkStatus(obj.config.id);
+                        if(checkStatus.data==""){
+                            layer.msg("请选中至少一行!",{icon:5});
+                        }else {
+                            var arr=new Array();
+                            $.each(checkStatus.data,function (i,item) {
+                                arr.push(item.className);
+                            });
+                            console.log(arr);
+                            layer.confirm('您确定要:'+JSON.stringify(arr)+'班级吗?',function (index) {
+                                var classData={arr:arr,sScName:user.manNuitName};
+                                $.ajax({
+                                    url:'/internships/class/remove_batch_class',
+                                    data:JSON.stringify(classData),
+                                    type:'post',
+                                    contentType: 'application/json',
+                                    dataType:'text',
+                                    beforeSend:function(){
+                                        layer.msg("正在删除中...");
+                                    },
+                                    success:function () {
+                                        layer.msg("删除成功!",{icon:1});
+                                        tableIns.reload();
+                                    }
+                                });
+                                layer.close(index);
+                            });
+                        }
+                        break;
+                }
+            });
+
+            //监听行单击事件
+            table.on('tool(class)', function(obj){
+                switch (obj.event) {
+                    //修改功能
+                    case 'edit':
+                        layer.open({
+                            type: 2
+                            ,title: '修改班级'
+                            ,shade:0.5//设置弹窗背景遮蔽
+                            ,shadeClose: true
+                            ,maxmin: true //开启最大化最小化按钮
+                            ,area: ['800px', '450px']//
+                            ,scrollbar: false
+                            ,content: '/internships/class-edit'
+                            ,success:function (layero,index) {
+                                // 获取子页面的iframe
+                                var iframe = window['layui-layer-iframe' + index];
+                                // 向子页面的全局函数child传参
+                                iframe.child(obj.data);
+                            }
+                            ,end:function () {//弹窗关闭，数据回显
+                                if (callData!=null){
+                                    obj.update({
+                                        className:callData.newClassName,
+                                        collegeName:callData.collegeName,
+                                        displineName:callData.displineName,
+                                        classStuNum:callData.classStuNum,
+                                        instructorName:callData.instructorName,
+                                        instructorTel:callData.instructorTel,
+                                    });
+                                    callData=null;
+                                }
+                            }
+                        });
+                        break;
+                    //删除功能
+                    case 'del':
+                        layer.confirm('您确定要删除'+obj.data.className+'吗?',function (index) {
+                            $.ajax({
+                                url:'/internships/class/remove_class',
+                                data:{sScName:obj.data.sScName,className:obj.data.className},
+                                success:function () {
+                                    layer.msg("删除成功!",{icon:1});
+                                }
+                            });
+                            obj.del();
+                            layer.close(index);
+                        });
+                        break;
+                }
+            });
+
+
+        });
+    </script>
+</body>
+</html>

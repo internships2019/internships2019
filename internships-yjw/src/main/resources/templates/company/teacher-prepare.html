@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>已绑老师列表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" th:href="@{/css/font.css}" href="./css/font.css">
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" href="./css/xadmin.css">
+    <script th:src="@{/layui/layui.js}" src="layui/layui.js" charset="utf-8"></script>
+</head>
+<body style="margin: 20px;">
+    <table class="layui-hide"  id="teacher" lay-filter="teacher"></table>
+    <script>
+        function child(user) {
+            console.log(user);
+            layui.use(['table','jquery'],function () {
+                var table=layui.table;
+                var $=layui.jquery;
+
+                table.render({
+                    elem:'#teacher',
+                    url:'/internships/teacher/find_teacher_list',
+                    where:{
+                        unitName:user.manNuitName,
+                        pStatus:'企业指导老师'
+                    },
+                    height:350,
+                    skin:'line',
+                    page:true,
+                    cols:[
+                        [
+                            {field:'unitNo',title: '工号',align:"center"}
+                            ,{field:'pName', title: '姓名',align:"center"}
+                            ,{field:'pSex',title:'性别',align:"center"}
+                            ,{field:'pTel',width:150, title: '电话',align:"center"}
+                        ]
+                    ]
+                });
+            });
+        }
+    </script>
+</body>
+</html>

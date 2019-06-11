@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>项目审核列表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" th:href="@{/css/font.css}" href="./css/font.css">
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" href="./css/xadmin.css">
+    <script th:src="@{/layui/layui.js}" src="layui/layui.js" charset="utf-8"></script>
+</head>
+<body style="margin: 20px;">
+    <a class="layui-btn layui-btn-sm " style="float:right" href="javascript:location.replace(location.href);" title="刷新"><i class="layui-icon" style="line-height:30px">&#xe669;</i></a>
+    <div class="demoTable">
+        <div class="layui-inline">
+            <input class="layui-input" style="width: 200px;height: 30px;" placeholder="请输入岗位名称" name="jobName" id="jobName" autocomplete="off">
+        </div>
+        <button class="layui-btn layui-btn-sm" style="margin-left: 10px" id="search"><i class="layui-icon">&#xe615;</i>搜索</button>
+    </div>
+    <table class="layui-hide"  id="stuAllot" lay-filter="stuAllot"></table>
+    <!--数据表格左侧工具栏-->
+    <script type="text/html" id="toolbarDemo">
+        <div class="layui-btn-container">
+            <button class="layui-btn layui-btn-sm " lay-event="deletePass"><i class="layui-icon">&#x1005;</i>批量通过</button>
+            <button class="layui-btn layui-btn-sm layui-btn-danger" lay-event="deleteRefuse"><i class="layui-icon">&#xe640;</i>批量驳回</button>
+            <button class="layui-btn layui-btn-sm" style="background-color: #5FB878" lay-event="teacherList"><i class="layui-icon">&#xe66c;</i>带队老师列表</button>
+        </div>
+    </script>
+    <!--数据表格操作选项中的按钮-->
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs" lay-event="pass">通过</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="refuse">驳回</a>
+    </script>
+    <script>
+        var callData=null;
+        layui.use(['table','layer','jquery','util'],function () {
+            var table=layui.table;
+            var layer=layui.layer;
+            var $=layui.jquery;
+            var tableIns=null;
+            var user=null;
+            var util=layui.util;
+
+            $.ajax({
+                url:"/internships/manager/get_manager_information"
+                ,success:function (res) {
+                    user=JSON.parse(res);
+                    console.log(user);
+
+                    //表格构造
+                    tableIns=table.render({
+                        elem: '#stuAllot'
+                        ,url:'/internships/stuAllot/find_stuAllot_list'
+                        ,height:400
+                        ,cellMinWidth: 150
+                        ,toolbar:'default'
+                        ,page:true
+                        ,toolbar: '#toolbarDemo'
+                        ,where:{
+                            sScName:user.manNuitName,
+                            state:'待审核'
+                        }
+                        ,cols: [
+                            [
+                                {type: 'checkbox', fixed: 'left'}
+                                ,{fixed:'left',filed:'sNo',title: '学号',align:"center",templet:'<div>{{d.student.sNo}}</div>'}
+                                ,{filed:'sName',title: '学生姓名',width:100,align:"center",templet:'<div>{{d.student.sName}}</div>'}
+                                ,{field:'jobName', title: '岗位名',align:"center"}
+                                ,{field:'comLocation',width:250,title: '工作地点',align:"center"}
+                                ,{field:'comName', title: '单位名',align:"center"}
+                                ,{field:'state',width:100, title: '状态',align:"center"}
+                                ,{fixed:'right',title:'操作',width:150,toolbar:'#barDemo',align:"center"}
+                            ]
+                        ]
+                    });
+                }
+            });
+
+            //岗位名搜索
+            $('#search').click(function () {
+                tableIns.reload({
+                    url:'/internships/companyJob/find_companyJob_byName'
+                    ,where:{sScName:user.manNuitName,jobName:$('#jobName').val()}
+                });
+            });
+
+
+            //左侧工具栏事件
+            table.on('toolbar(stuAllot)',function (obj) {
+                switch (obj.event) {
+                    //批审核通过
+                    case 'deletePass':
+                        var checkStatus = table.checkStatus(obj.config.id);
+                        if(checkStatus.data==""){
+                            layer.msg("请选中至少一行!",{icon:5});
+                        }else {
+                            var ids=new Array();
+                            $.each(checkStatus.data,function (i,item) {
+                                ids.push(item.id);
+                            });
+                            layer.prompt({title: '请输入带队老师工号!'}, function(text, index){
+                                $.ajax({
+                                    url:'/internships/stuAllot/batch_add_leadTeacher',
+                                    data:{ids:ids,unitName:user.manNuitName,unitNo:text},
+                                    type : 'POST',
+                                    traditional:true,//组织深度序列化
+                                    success:function (res) {
+                                        if (res=='1'){
+                                            layer.msg("批审核通过！");
+                                            tableIns.reload();
+                                            layer.close(index);
+                                        } else {
+                                            layer.msg("教师工号不存在，请重新填写!");
+                                        }
+                                    }
+                                });
+                            });
+                        }
+                        break;
+                    //批驳回
+                    case 'deleteRefuse':
+                        var checkStatus = table.checkStatus(obj.config.id);
+                        if(checkStatus.data==""){
+                            layer.msg("请选中至少一行!",{icon:5});
+                        }else {
+                            var ids=new Array();
+                            var names=new Array();
+                            $.each(checkStatus.data,function (i,item) {
+                                ids.push(item.id);
+                                names.push(item.student.sName);
+                                console.log(item.student.sName);
+                            });
+                            console.log(ids);
+                            layer.confirm('您确定要驳回:<span style="color: red">'+JSON.stringify(names)+'</span>的申请吗?',function (index) {
+                                $.ajax({
+                                    url:'/internships/stuAllot/batch_delete_leadTeacher',
+                                    data:{ids:ids},
+                                    type:'post',
+                                    traditional:true,
+                                    beforeSend:function(){
+                                        layer.msg("正在批驳回中...");
+                                    },
+                                    success:function (res) {
+                                        if (res=='1'){
+                                            layer.msg("驳回成功!",{icon:1});
+                                            tableIns.reload();
+                                        }else {
+                                            layer.msg("出现未知错误,请重试!",{icon:2});
+                                        }
+                                    }
+                                });
+                                layer.close(index);
+                            });
+                        }
+                        break;
+                    //带队老师列表
+                    case 'teacherList':
+                        layer.open({
+                            type: 2,
+                            title: '已绑定指导老师',
+                            shade:0.5,//设置弹窗背景遮蔽
+                            shadeClose: true,
+                            maxmin: true, //开启最大化最小化按钮
+                            area: ['800px', '440px'],//
+                            scrollbar: false,
+                            content: '/internships/teacher-list'
+                            ,success:function (layero,index) {
+                                // 获取子页面的iframe
+                                var iframe = window['layui-layer-iframe' + index];
+                                // 向子页面的全局函数child传参
+                                iframe.child(user);
+                            }
+                        });
+                        break;
+                }
+            });
+
+            //监听行单击事件
+            table.on('tool(stuAllot)', function(obj){
+                switch (obj.event) {
+                    //通过申请
+                    case 'pass':
+                        layer.prompt({title: '请输入带队老师工号!'}, function(text, index){
+                            $.ajax({
+                                url:'/internships/stuAllot/add_leadTeacher',
+                                data:{unitNo:text,unitName:user.manNuitName,id:obj.data.id},
+                                success:function (res) {
+                                    if (res=='1'){
+                                        layer.msg("审核通过！");
+                                        obj.del();
+                                        layer.close(index);
+                                    } else {
+                                        layer.msg("教师工号不存在，请重新填写!");
+                                    }
+                                }
+                            });
+                        });
+                       break;
+                    //驳回申请
+                    case 'refuse':
+                        console.log(obj.data);
+                        layer.confirm('您确定要驳回 <span style="color: red">'+obj.data.student.sName+'</span> 的实习岗位申请吗?',function (index) {
+                            console.log(obj.data.id);
+                            $.ajax({
+                                url:'/internships/stuAllot/remove_stuAllot',
+                                type:'post',
+                                contentType: 'application/json',
+                                data:JSON.stringify(obj.data.id),
+                                success:function () {
+                                    layer.msg("驳回成功!",{icon:1});
+                                }
+                            });
+                            obj.del();
+                            layer.close(index);
+                        });
+                        break;
+                }
+            });
+
+
+        });
+    </script>
+</body>
+</html>

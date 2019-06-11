@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylq.internships.mapper.CompanyJobMapper">
+    <resultMap id="companyJob" type="CompanyJob">
+        <id property="jobId" column="job_id" javaType="Integer"/>
+        <result property="comName" column="com_name" javaType="String"/>
+        <result property="jobName" column="job_name" javaType="String"/>
+        <result property="workPlace" column="work_place" javaType="String"/>
+        <result property="workDescription" column="work_description" javaType="String"/>
+        <result property="postTime" column="post_time" javaType="java.util.Date"/>
+        <result property="endTime" column="end_time" javaType="java.util.Date"/>
+        <result property="adState" column="ad_state" javaType="String"/>
+        <result property="recruitNum" column="recruit_num" javaType="Integer"/>
+        <result property="sScName" column="s_sc_name" javaType="String"/>
+        <result property="nowNum" column="now_num" javaType="Integer"/>
+    </resultMap>
+
+    <select id="getCompanyJobList" parameterType="String" resultMap="companyJob">
+        SELECT * FROM `company_job` where s_sc_name=#{sScName} and ad_state!='招聘结束'  order by post_time desc
+    </select>
+
+    <select id="getCompanyJobByName" resultMap="companyJob">
+        SELECT * FROM `company_job` where s_sc_name=#{sScName} and job_name=#{jobName} and ad_state!='招聘结束' order by post_time desc
+    </select>
+
+    <select id="getHistoryCompanyJobList" resultMap="companyJob">
+         SELECT * FROM `company_job` where s_sc_name=#{sScName} and ad_state='招聘结束'  order by post_time desc
+    </select>
+
+    <insert id="insertCompanyJob" parameterType="CompanyJob">
+        INSERT INTO `company_job` ( `com_name`, `job_name`, `work_place`, `work_description`, `post_time`, `end_time`, `ad_state`, `recruit_num`, `s_sc_name`,`now_num` )
+        VALUES ( #{comName},#{jobName},#{workPlace},#{workDescription},#{postTime},#{endTime},#{adState},#{recruitNum},#{sScName},#{nowNum}) ;
+    </insert>
+
+    <update id="updateCompanyJob" parameterType="CompanyJob">
+        update `company_job`
+        <set>
+            `job_name` = #{jobName},
+            `work_place` = #{workPlace},
+            `work_description` = #{workDescription},
+            `end_time` = #{endTime},
+            `ad_state` = #{adState},
+            `recruit_num` = #{recruitNum}
+        </set>
+        where `job_id` = #{jobId};
+    </update>
+
+    <update id="updateState">
+        update company_job set ad_state='招聘结束' where job_id=#{jobId};
+    </update>
+
+    <delete id="deleteCompanyJob" parameterType="Integer">
+        delete from company_job where job_id = #{jobId}
+    </delete>
+
+    <delete id="batchDeleteCompanyJob">
+        delete from company_job where job_id in
+        <foreach collection="arr" item="jobId" open="(" separator="," close=")">
+            #{jobId}
+        </foreach>
+    </delete>
+</mapper>

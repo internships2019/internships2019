@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>岗位列表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" th:href="@{/css/font.css}" href="./css/font.css">
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" href="./css/xadmin.css">
+    <script th:src="@{/layui/layui.js}" src="layui/layui.js" charset="utf-8"></script>
+</head>
+<body style="margin: 20px;">
+    <table class="layui-hide"  id="companyJob" lay-filter="companyJob"></table>
+    <script>
+        function child(user){
+            layui.use(['table','util'],function () {
+                var table=layui.table;
+                var util=layui.util;
+
+                table.render({
+                    elem: '#companyJob'
+                    ,url:'/internships/companyJob/find_history_list'
+                    ,height:400
+                    ,cellMinWidth: 80
+                    ,page:true
+                    ,skin:'line'
+                    ,where:{
+                        sScName:user.manNuitName
+                    }
+                    ,cols: [
+                        [
+                            {field:'jobName',width:200,title: '岗位名',align:"center"}
+                            ,{field:'comName', width:200,title: '所属企业',align:"center"}
+                            ,{field:'workPlace',width:350, title: '工作地点',align:"center"}
+                            ,{field:'postTime',width:200, title: '创建时间',align:"center",templet: "<div>{{layui.util.toDateString(d.postTime, 'yyyy-MM-dd HH:mm:ss')}}</div>"}
+                            ,{field:'recruitNum',width:100, title: '招收人数',align:"center"}
+                            ,{field:'nowNum',width:100, title: '终招人数',align:"center"}
+                            ,{field:'adState',width:120, title: '状态',align:"center"}
+                        ]
+                    ]
+                });
+            });
+        }
+    </script>
+</body>
+</html>

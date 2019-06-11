@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>实习学生详细信息</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" th:href="@{/css/font.css}" href="./css/font.css">
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" href="./css/xadmin.css">
+    <script th:src="@{/js/jquery.js}" src="layui/layui.js" charset="utf-8"></script>
+    <script th:src="@{/layui/layui.js}" src="layui/layui.js" charset="utf-8"></script>
+    <style>
+        td{text-align: center;}
+    </style>
+</head>
+<body style="margin: 20px">
+    <table class="layui-table" >
+        <tbody>
+        <tr>
+            <td>学号：</td>
+            <td id="pNo"></td>
+            <td rowspan="4" colspan="2"><img id="img"  th:src="@{/images/img.png}"></td>
+        </tr>
+        <tr>
+            <td>姓名：</td>
+            <td id="pName"></td>
+        </tr>
+        <tr>
+            <td>性别：</td>
+            <td id="pSex"></td>
+        </tr>
+        <tr>
+            <td>隶属学校：</td>
+            <td id="schoolName"></td>
+        </tr>
+        <tr>
+            <td>专业：</td>
+            <td id="displineName"></td>
+            <td>手机号码：</td>
+            <td id="pTel"></td>
+        </tr>
+        <tr>
+            <td>学校带队老师：</td>
+            <td id="scTeacher"></td>
+            <td>带队老师电话：</td>
+            <td id="scTel"></td>
+        </tr>
+        <tr>
+            <td>实习指导老师：</td>
+            <td id="comTeacher"></td>
+            <td>指导老师电话：</td>
+            <td id="comTel"></td>
+        </tr>
+        <tr>
+            <td>工作地点：</td>
+            <td id="comLocation"></td>
+            <td>住宿地点：</td>
+            <td id="liveLoction">带队老师暂未设置</td>
+        </tr>
+        </tbody>
+    </table>
+    <script>
+        function child(d) {
+            console.log(d);
+            $.ajax({
+                url:'/internships/stuAllot/find_student_information'
+                ,data:{id:d}
+                ,success:function (res) {
+                    console.log(res);
+                    $('#scTel').html(res.scTel);
+                    $('#comTel').html(res.comTel);
+                    $('#displineName').html(res.displineName);
+                    $('#pNo').html(res.stuAllot.student.sNo);
+                    $('#pTel').html(res.stuAllot.student.stuTel);
+                    $('#pSex').html(res.stuAllot.student.sSex);
+                    $('#pName').html(res.stuAllot.student.sName);
+                    $('#schoolName').html(res.stuAllot.sScName);
+                    $('#scTeacher').html(res.stuAllot.scTeaName);
+                    $('#comTeacher').html(res.stuAllot.comTeaName);
+                    $('#comLocation').html(res.stuAllot.comLocation);
+                    if (res.stuAllot.student.sImg!=null){
+                        console.log("图片设置了"+res.stuAllot.student.sImg);
+                        $('#img').attr('src',res.stuAllot.student.sImg);
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

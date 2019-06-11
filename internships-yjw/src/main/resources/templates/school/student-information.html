@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加企业</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" th:href="@{/css/font.css}" href="./css/font.css">
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" href="./css/xadmin.css">
+    <script th:src="@{/js/jquery.js}" src="layui/layui.js" charset="utf-8"></script>
+    <script th:src="@{/layui/layui.js}" src="layui/layui.js" charset="utf-8"></script>
+    <style>
+        td{text-align: center;}
+    </style>
+</head>
+<body style="margin: 20px">
+    <table class="layui-table">
+        <tbody>
+        <tr>
+            <td>学号：</td>
+            <td id="pNo">201626702171</td>
+            <td rowspan="4"><img id="img"  th:src="@{/images/img.png}"></td>
+        </tr>
+        <tr>
+            <td>姓名：</td>
+            <td id="pName">獐髓</td>
+        </tr>
+        <tr>
+            <td>性别：</td>
+            <td id="pSex">男</td>
+        </tr>
+        <tr>
+            <td>班级：</td>
+            <td id="className">商务软件一班</td>
+        </tr>
+        <tr>
+            <td>学院：</td>
+            <td colspan="2" id="collegeName">软件学院</td>
+        </tr>
+        <tr>
+            <td>专业：</td>
+            <td colspan="2" id="displineName">商务软件开发</td>
+        </tr>
+        <tr>
+            <td>手机号码：</td>
+            <td colspan="2" id="pTel">13710698734</td>
+        </tr><tr>
+            <td>身份证：</td>
+            <td colspan="2" id="pId">620826196110259823</td>
+        </tr>
+        </tbody>
+    </table>
+    <script>
+        function child(d) {
+            console.log(d);
+            $.ajax({
+                url:'/internships/waitInsertInfo/find_waitInfo_information'
+                ,data:{id:d}
+                ,success:function (res) {
+                    console.log(res);
+                    $('#pNo').html(res.pNo);
+                    $('#pName').html(res.pName);
+                    $('#pSex').html(res.pSex);
+                    $('#className').html(res.className);
+                    $('#pTel').html(res.pTel);
+                    $('#pId').html(res.pId);
+                    $('#collegeName').html(res.wClass.collegeName);
+                    $('#displineName').html(res.wClass.displineName);
+                    if (res.pImg!=null){
+                        console.log("图片设置完成"+res.pImg);
+                        $('#img').attr('src',res.pImg);
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

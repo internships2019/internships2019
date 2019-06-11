@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加企业</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" th:href="@{/css/font.css}" href="./css/font.css">
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" href="./css/xadmin.css">
+    <script th:src="@{/js/jquery.js}" src="layui/layui.js" charset="utf-8"></script>
+    <script th:src="@{/layui/layui.js}" src="layui/layui.js" charset="utf-8"></script>
+    <style>
+        td{text-align: center;}
+    </style>
+</head>
+<body style="margin: 20px">
+    <table class="layui-table">
+        <tbody>
+        <tr>
+            <td>学号：</td>
+            <td id="sNo">201626702171</td>
+            <td rowspan="4"  colspan="2"><img id="img"  th:src="@{/images/img.png}"></td>
+        </tr>
+        <tr>
+            <td>姓名：</td>
+            <td id="sName">獐髓</td>
+        </tr>
+        <tr>
+            <td>性别：</td>
+            <td id="sSex">男</td>
+        </tr>
+        <tr>
+            <td>班级：</td>
+            <td id="className">商务软件一班</td>
+        </tr>
+        <tr>
+            <td>手机号码：</td>
+            <td  id="sTel">13710698734</td>
+            <td>分配状态：</td>
+            <td id="sState">待实习</td>
+        </tr>
+        <tr>
+            <td>实习岗位：</td>
+            <td id="jobName">无</td>
+            <td>岗位申请状态：</td>
+            <td id="state">无</td>
+        </tr>
+        <tr>
+            <td>实习单位：</td>
+            <td id="comName">无</td>
+            <td>带队老师姓名：</td>
+            <td id="scTeaName">无</td>
+        </tr>
+        <tr>
+            <td>实习单位地址：</td>
+            <td id="comLocation" colspan="3">无</td>
+        </tr>
+        </tbody>
+    </table>
+    <script>
+        function child(d) {
+            console.log(d);
+            $.ajax({
+                url:'/internships/student/find_student_information'
+                ,data:{wxNo:d}
+                ,success:function (res) {
+                    console.log(res);
+                    $('#sNo').html(res.sNo);
+                    $('#sName').html(res.sName);
+                    $('#className').html(res.className);
+                    $('#sSex').html(res.sSex);
+                    $('#sState').html(res.sState);
+                    if (res.sImg!=null){
+                        console.log("图片设置完成"+res.pImg);
+                        $('#img').attr('src',res.sImg);
+                    }
+                    console.log(res.stuAllot.jobName);
+                    if (res.stuAllot.jobName!=null){
+                        $('#comLocation').html(res.stuAllot.comLocation);
+                        $('#comName').html(res.stuAllot.comName);
+                        $('#comTel').html(res.stuAllot.comTel);
+                        $('#jobName').html(res.stuAllot.jobName);
+                        $('#state').html(res.stuAllot.state);
+                    }
+                    if (res.stuAllot.scTeaName!=null&&res.stuAllot.scTeaName!=''){
+                        $('#scTeaName').html(res.stuAllot.scTeaName);
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

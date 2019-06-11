@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylq.internships.mapper.ScoreStandardMapper">
+    <resultMap id="scoreStandard" type="ScoreStandard">
+        <id property="standardId" column="standard_id" javaType="Integer"/>
+        <result property="scName" column="sc_name" javaType="String"/>
+        <result property="attanPecent" column="attan_percent" javaType="Double"/>
+        <result property="apprPecent" column="appr_percent" javaType="Double"/>
+    </resultMap>
+
+    <select id="getScoreStadard" resultMap="scoreStandard">
+        select * from score_standard where sc_name = #{scName}
+    </select>
+
+    <update id="updateScoreStandard" parameterType="ScoreStandard">
+        UPDATE
+          `score_standard`
+        <set>
+        `attan_percent` = #{attanPecent},
+        `appr_percent` = #{apprPecent}
+        </set>
+        WHERE `sc_name` = #{scName} ;
+    </update>
+
+    <insert id="insertScoreStandard">
+        INSERT INTO `score_standard` ( `sc_name`, `attan_percent`, `appr_percent` )
+        VALUES ( #{scName},  #{attanPecent}, #{apprPecent} ) ;
+    </insert>
+</mapper>

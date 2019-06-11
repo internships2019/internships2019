@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylq.internships.mapper.ClockTimeMapper">
+    <resultMap id="clockTime" type="ClockTime">
+        <id property="id" column="id" javaType="Integer"/>
+        <result property="wxNo" column="wx_no" javaType="String"/>
+        <result property="startTime" column="start_time" javaType="java.sql.Time"/>
+        <result property="endTime" column="end_time" javaType="java.sql.Time"/>
+        <result property="clockType" column="clock_type" javaType="String"/>
+        <result property="scTeaWx" column="sc_tea_wx" javaType="String"/>
+        <result property="deductScore" column="deduct_score" javaType="Double"/>
+    </resultMap>
+
+    <!--  获取某段范围内的打卡时间段信息  -->
+    <select id="getClokTimeTiming" resultMap="clockTime">
+        select * from clock_time where  end_time!=#{oldTime} and end_time between #{oldTime} and #{nowTime};
+    </select>
+
+    <!--  获取实习学生所以打卡时间段信息  -->
+    <select id="getClockTimeList" resultMap="clockTime">
+        select * from clock_time where wx_no = #{wxNo};
+    </select>
+
+    <insert id="insertClcokTime" parameterType="ClockTime">
+        INSERT INTO `clock_time` ( `wx_no`, `start_time`, `end_time`, `clock_type`, `sc_tea_wx`, `deduct_score` )
+        VALUES ( #{wxNo}, #{startTime},#{endTime},#{clockType},#{scTeaWx},#{deductScore} ) ;
+    </insert>
+
+    <update id="updateClcokTime" parameterType="ClockTime">
+        UPDATE  `clock_time`
+        <set>
+            `start_time` = #{startTime},
+            `end_time` = #{endTime},
+            `clock_type` = #{clockType},
+            `deduct_score` = #{deductScore}
+        </set>
+        WHERE `id` = #{id} ;
+
+    </update>
+
+    <delete id="deleteClockTime">
+        delete from clock_time where wx_no = #{wxNo};
+    </delete>
+
+    <delete id="deleteClockTimeById">
+        delete from clock_time where id=#{id};
+    </delete>
+</mapper>

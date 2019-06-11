@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylq.internships.mapper.StudentMapper">
+    <resultMap id="student" type="Student">
+        <id property="wxNo" column="wx_no" javaType="String"/>
+        <result property="sNo" column="s_no" javaType="String"/>
+        <result property="sName" column="s_name" javaType="String"/>
+        <result property="sSex" column="s_sex" javaType="String"/>
+        <result property="sImg" column="s_img" javaType="String"/>
+        <result property="sScName" column="s_sc_name" javaType="String"/>
+        <result property="sState" column="s_state" javaType="String"/>
+        <result property="stuTel" column="stu_tel" javaType="String"/>
+        <result property="className" column="class_name" javaType="String"/>
+        <association property="stuAllot" javaType="StuAllot">
+            <result property="state" column="state" javaType="String"/>
+            <result property="comName" column="com_name" javaType="String"/>
+            <result property="comLocation" column="com_location" javaType="String"/>
+            <result property="comTel" column="com_tel" javaType="String"/>
+            <result property="jobId" column="job_id" javaType="Integer"/>
+            <result property="jobName" column="job_name" javaType="String"/>
+            <result property="scTeaName" column="sc_tea_name" javaType="String"/>
+            <result property="comTeaName" column="com_tea_name" javaType="String"/>
+        </association>
+        <association property="aClass" javaType="Class">
+            <result property="collegeName" column="college_name" javaType="String"/>
+            <result property="displineName" column="displine_name" javaType="String"/>
+        </association>
+    </resultMap>
+
+    <select id="getStudentList" resultMap="student">
+        select * from student where s_sc_name=#{sScName} and s_state=#{sState}
+    </select>
+
+    <select id="getStudnetInformation" parameterType="String" resultMap="student">
+        SELECT  s.*,sa.*
+        FROM `student` s
+        LEFT JOIN stu_allot sa ON s.wx_no=sa.s_wx_no
+        WHERE s.`wx_no` = #{wxNo}
+    </select>
+
+    <select id="getStudentByName" resultMap="student">
+        select * from student where s_sc_name=#{sScName} and s_state=#{sState} and s_name=#{sName}
+    </select>
+
+    <delete id="deleteStudent1" parameterType="String">
+        DELETE FROM `student` WHERE `wx_no` = ${wxNo}
+    </delete>
+
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylq.internships.mapper.ClockRecordMapper">
+    <resultMap id="clockRecord" type="ClockRecord">
+        <id property="clockId" column="clock_id" javaType="Integer"/>
+        <result property="wxNo" column="wx_no" javaType="String"/>
+        <result property="clockTime" column="clock_time" javaType="java.util.Date"/>
+        <result property="clockLocation" column="clock_location" javaType="String"/>
+        <result property="clockLongtitude" column="clock_longtitude" javaType="Double"/>
+        <result property="clockLatitude" column="clock_latitude" javaType="Double"/>
+        <result property="clockType" column="clock_type" javaType="String"/>
+        <result property="clockStatus" column="clock_status" javaType="String"/>
+        <result property="deductScore" column="deduct_score" javaType="Double"/>
+        <result property="scTeaWx" column="sc_tea_wx" javaType="String"/>
+    </resultMap>
+
+    <select id="getStudnetClockRecord" resultMap="clockRecord">
+        select * from clock_record where wx_no=#{wxNo} order by clock_time desc
+    </select>
+
+    <select id="getClockRecordByScTeaWx" resultMap="clockRecord">
+        select * from clock_record where sc_tea_wx=#{scTeaWx} order by clock_time desc
+    </select>
+
+    <select id="getClockRecord" resultMap="clockRecord">
+        select * from clock_record where wx_no=#{wxNo} and clock_time between #{startTime} and #{endTime};
+    </select>
+
+    <insert id="batchInsertClockRecord">
+        INSERT INTO `clock_record` ( `wx_no`, `clock_time`, `clock_location`, `clock_longtitude`, `clock_latitude`, `clock_type`, `clock_status`, `deduct_score`, `sc_tea_wx` )
+        VALUES
+        <foreach collection="clockRecords" item="clockRecord" index="index" separator=",">
+            ( #{clockRecord.wxNo}, #{clockRecord.clockTime},#{clockRecord.clockLocation},#{clockRecord.clockLongtitude},#{clockRecord.clockLatitude},#{clockRecord.clockType},#{clockRecord.clockStatus},#{clockRecord.deductScore},#{clockRecord.scTeaWx} )
+        </foreach>
+    </insert>
+</mapper>

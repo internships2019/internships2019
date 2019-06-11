@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylq.internships.mapper.InformationMapper">
+    <resultMap id="information" type="Information">
+        <id property="infoId" column="info_id" javaType="Integer"/>
+        <result property="sScName" column="s_sc_name" javaType="String"/>
+        <result property="infoTitle" column="info_title" javaType="String"/>
+        <result property="infoContent" column="info_content" javaType="String"/>
+        <result property="infoTime" column="info_time" javaType="java.util.Date"/>
+    </resultMap>
+
+    <select id="getInformationList" resultMap="information">
+        select * from information where s_sc_name=#{sScName} order by info_time desc
+    </select>
+
+    <insert id="insertInformation">
+        INSERT INTO `information` ( `s_sc_name`, `info_title`, `info_content`, `info_time` )
+        VALUES ( #{sScName}, #{infoTitle},#{infoContent},#{infoTime} ) ;
+    </insert>
+
+    <update id="updateInformation">
+        UPDATE  `information`
+        <set> `info_title` = #{infoTitle},
+            `info_content` = #{infoContent},
+        </set>
+        WHERE `info_id` = #{infoId};
+    </update>
+
+    <delete id="deleteInformation">
+        delete from information where info_id=#{infoId};
+    </delete>
+
+    <delete id="batchDeleteInformation">
+        delete from  information where  info_id in
+        <foreach collection="infoIds" item="infoId" open="(" separator="," close=")">
+            #{infoId}
+        </foreach>
+    </delete>
+</mapper>

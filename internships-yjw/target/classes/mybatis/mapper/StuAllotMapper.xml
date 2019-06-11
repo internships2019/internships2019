@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylq.internships.mapper.StuAllotMapper">
+    <resultMap id="stuAllot" type="StuAllot">
+        <id property="id" column="id" javaType="Integer"/>
+        <result property="sWxNo" column="s_wx_no" javaType="String"/>
+        <result property="state" column="state" javaType="String"/>
+        <result property="comName" column="com_name" javaType="String"/>
+        <result property="comLocation" column="com_location" javaType="String"/>
+        <result property="comTel" column="com_tel" javaType="String"/>
+        <result property="jobId" column="job_id" javaType="Integer"/>
+        <result property="jobName" column="job_name" javaType="String"/>
+        <result property="scTeaWx" column="sc_tea_wx" javaType="String"/>
+        <result property="comTeaWx" column="com_tea_wx" javaType="String"/>
+        <result property="scTeaName" column="sc_tea_name" javaType="String"/>
+        <result property="comTeaName" column="com_tea_name" javaType="String"/>
+        <result property="sScName" column="s_sc_name" javaType="String"/>
+        <association property="student" javaType="Student">
+            <result property="sNo" column="s_no" javaType="String"/>
+            <result property="sName" column="s_name" javaType="String"/>
+            <result property="sSex" column="s_sex" javaType="String"/>
+            <result property="stuTel" column="stu_tel" javaType="String"/>
+            <result property="sImg" column="s_img" javaType="String"/>
+            <result property="className" column="class_name" javaType="String"/>
+        </association>
+    </resultMap>
+
+    <!--  通过id获取stuAllot信息  -->
+    <select id="getById" resultMap="stuAllot">
+        SELECT s.*,st.*
+        FROM `stu_allot` s
+        LEFT JOIN student st ON s.`s_wx_no`=st.`wx_no`
+        where s.id=#{id}
+    </select>
+
+    <select id="getStuAllotList" resultMap="stuAllot">
+        SELECT s.*,st.`s_no`,st.`s_name`,st.`s_sex`,st.`stu_tel`
+        FROM `stu_allot` s
+        LEFT JOIN student st ON s.`s_wx_no`=st.`wx_no`
+        where s.s_sc_name=#{sScName} and s.state=#{state}
+    </select>
+
+<!--  企业获取实习申请列表  -->
+    <select id="getCompanyStuAllotList" resultMap="stuAllot">
+        SELECT s.*,st.`s_no`,st.`s_name`,st.`stu_tel`,st.s_sex
+        FROM `stu_allot` s
+        LEFT JOIN student st ON s.`s_wx_no`=st.`wx_no`
+        where s.com_name=#{sScName} and s.state=#{state}
+    </select>
+
+    <select id="getByStuName" resultMap="stuAllot">
+        SELECT s.*,st.`s_no`,st.`s_name`,st.`stu_tel`,st.`s_sex`
+        FROM `stu_allot` s
+        LEFT JOIN student st ON s.`s_wx_no`=st.`wx_no`
+        where s.com_name=#{sScName} and s.state=#{state} and st.s_name=#{stuName}
+    </select>
+
+    <select id="getSchoolStudnetByStuName" resultMap="stuAllot">
+        SELECT s.*,st.`s_no`,st.`s_name`,st.`stu_tel`,st.`s_sex`
+        FROM `stu_allot` s
+        LEFT JOIN student st ON s.`s_wx_no`=st.`wx_no`
+        where s.s_sc_name=#{sScName} and s.state=#{state} and st.s_name=#{stuName}
+    </select>
+
+    <!--  查询学生微信号和学校名  -->
+    <select id="getStudAllotById" resultMap="stuAllot">
+        select s_wx_no,s_sc_name from stu_allot where id=#{id};
+    </select>
+
+    <select id="getStudentToSchoolTeacher" resultMap="stuAllot">
+         select s.*,stu.*  from student s LEFT JOIN stu_allot stu ON s.wx_no = stu.s_wx_no where sc_tea_wx=#{scTeaWx}
+    </select>
+
+    <update id="updateLeadTeacher">
+        update stu_allot <set>`sc_tea_wx` = #{scTeaWx}, `sc_tea_name` = #{scTeaName}, `state` = '已审核'</set> where id=#{id}
+    </update>
+
+    <update id="updateCompanyTeacher">
+        update stu_allot <set>`com_tea_wx` = #{comTeaWx}, `com_tea_name` = #{comTeaName}, `state` = '实习中'</set> where id=#{id}
+    </update>
+
+    <!--  学校批量通过学生实习申请  -->
+    <update id="batachAddLeadTeacher">
+        update stu_allot <set>`sc_tea_wx` = #{scTeaWx}, `sc_tea_name` = #{scTeaName}, `state` = '已审核'</set>
+        where id in
+        <foreach collection="ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+
+<!--  企业批量通过学生实习申请  -->
+    <update id="batachAddCompanyTeacher">
+        update stu_allot <set>`com_tea_wx` = #{comTeaWx}, `com_tea_name` = #{comTeaName}, `state` = '实习中'</set>
+        where id in
+        <foreach collection="ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+
+    <!--  结束学生实习状态更改  -->
+    <update id="updateState">
+        update stu_allot set  `state` = '实习结束',sc_tea_wx= null ,com_tea_wx= null ,sc_tea_name= null ,com_tea_name= null
+        where s_wx_no = #{wxNo};
+    </update>
+
+    <delete id="deleteStuAllot">
+        delete from stu_allot where id=#{id}
+    </delete>
+
+    <delete id="batachDeleteStuAllot">
+        delete from stu_allot where id in
+        <foreach  collection="ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

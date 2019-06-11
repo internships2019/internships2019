@@ -1,0 +1,1338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8cad4b01-d13e-4e0f-a7fb-694560bbd8c6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/.idea/libraries/Maven__com_google_code_gson_gson_2_8_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/.idea/libraries/Maven__com_qiniu_qiniu_java_sdk_7_2_18.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/.idea/libraries/Maven__com_squareup_okhttp3_okhttp_3_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/.idea/libraries/Maven__com_squareup_okio_okio_1_14_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/.idea/libraries/Maven__commons_io_commons_io_1_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/119.23.235.33/usr/project/uploadImage/18638272412188.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/dto/ClassDelete.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/dto/ClassDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/utils/ExcelUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/utils/QiNiuYunUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/static/images/imageUpload.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/static/images/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/manager/company-add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/manager/company-edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/manager/company-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/school/class-add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/school/class-edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/school/class-explain.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/school/class-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/school/image-upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/school/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/school/student-enter-add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/school/student-enter.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/school/student-explain.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/school/student-information.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/school/teacher-add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/school/teacher-enter.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/school/teacher-explain.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/school/teacher-information.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/18638272415195.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/dto/ClassDelete.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/dto/ClassDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/utils/ExcelUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/utils/QiNiuYunUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/static/images/imageUpload.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/static/images/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/manager/company-add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/manager/company-edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/manager/company-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/school/class-add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/school/class-edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/school/class-explain.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/school/class-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/school/image-upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/school/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/school/student-enter-add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/school/student-enter.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/school/student-explain.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/school/student-information.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/school/teacher-add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/school/teacher-enter.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/school/teacher-explain.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/school/teacher-information.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/internships.iml" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/internships.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/config/MySpringMvcConfigurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/config/MySpringMvcConfigurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/controller/ClassController.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/controller/ClassController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/controller/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/controller/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/controller/WaitInsertInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/controller/WaitInsertInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/entity/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/entity/Class.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/entity/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/entity/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/entity/ScoreStandard.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/entity/ScoreStandard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/entity/WaitInsertInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/entity/WaitInsertInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/mapper/ClassMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/mapper/ClassMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/mapper/CompanyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/mapper/CompanyMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/mapper/ScoreStandardMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/mapper/ScoreStandardMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/mapper/WaitInsertInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/mapper/WaitInsertInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/service/ClassService.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/service/ClassService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/service/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/service/CompanyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/service/ScoreStandardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/service/ScoreStandardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/service/WaitInsertInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/service/WaitInsertInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/service/serviceImp/ClassServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/service/serviceImp/ClassServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/service/serviceImp/CompanyServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/service/serviceImp/CompanyServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/service/serviceImp/ManagerServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/service/serviceImp/ManagerServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/service/serviceImp/SchoolServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/service/serviceImp/SchoolServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/service/serviceImp/ScoreStandardServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/service/serviceImp/ScoreStandardServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/service/serviceImp/WaitInsertInfoServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/service/serviceImp/WaitInsertInfoServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/utils/Contant.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/utils/Contant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/utils/PageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/java/com/ylq/internships/utils/PageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/resources/mybatis/mapper/ClassMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/mybatis/mapper/ClassMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/resources/mybatis/mapper/CompanyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/mybatis/mapper/CompanyMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/resources/mybatis/mapper/ScoreStandardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/mybatis/mapper/ScoreStandardMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/resources/mybatis/mapper/WaitInsertInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/mybatis/mapper/WaitInsertInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/main/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/main/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/manager/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/manager/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/manager/school-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/manager/school-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/manager/school-manager-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/main/resources/templates/manager/school-manager-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/src/test/java/com/ylq/internships/InternshipsApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/src/test/java/com/ylq/internships/InternshipsApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/config/MySpringMvcConfigurer.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/config/MySpringMvcConfigurer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/controller/ClassController.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/controller/ClassController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/controller/CompanyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/controller/CompanyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/controller/ManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/controller/ManagerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/controller/WaitInsertInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/controller/WaitInsertInfoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/entity/Class.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/entity/Class.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/entity/Company.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/entity/Company.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/entity/ScoreStandard.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/entity/ScoreStandard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/entity/WaitInsertInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/entity/WaitInsertInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/mapper/ClassMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/mapper/ClassMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/mapper/CompanyMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/mapper/CompanyMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/mapper/ScoreStandardMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/mapper/ScoreStandardMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/mapper/WaitInsertInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/mapper/WaitInsertInfoMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/service/ClassService.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/service/ClassService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/service/CompanyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/service/CompanyService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/service/ScoreStandardService.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/service/ScoreStandardService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/service/WaitInsertInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/service/WaitInsertInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/service/serviceImp/ClassServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/service/serviceImp/ClassServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/service/serviceImp/CompanyServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/service/serviceImp/CompanyServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/service/serviceImp/ManagerServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/service/serviceImp/ManagerServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/service/serviceImp/SchoolServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/service/serviceImp/SchoolServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/service/serviceImp/ScoreStandardServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/service/serviceImp/ScoreStandardServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/service/serviceImp/WaitInsertInfoServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/service/serviceImp/WaitInsertInfoServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/utils/Contant.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/utils/Contant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/utils/PageUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/com/ylq/internships/utils/PageUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/mybatis/mapper/ClassMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/mybatis/mapper/ClassMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/mybatis/mapper/CompanyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/mybatis/mapper/CompanyMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/mybatis/mapper/ScoreStandardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/mybatis/mapper/ScoreStandardMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/mybatis/mapper/WaitInsertInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/mybatis/mapper/WaitInsertInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/main/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/main/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/manager/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/manager/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/manager/school-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/manager/school-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/manager/school-manager-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/classes/templates/manager/school-manager-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/internships-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/internships-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/internships-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/internships-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/surefire-reports/TEST-com.ylq.internships.InternshipsApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/surefire-reports/TEST-com.ylq.internships.InternshipsApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/surefire-reports/com.ylq.internships.InternshipsApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/surefire-reports/com.ylq.internships.InternshipsApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internships2019/internships/target/test-classes/com/ylq/internships/InternshipsApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/internships2019/internships/target/test-classes/com/ylq/internships/InternshipsApplicationTests.class" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="internships" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/utils/Contant.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="528">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/service/serviceImp/ClockRecordServiceImp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="295">
+              <caret line="53" column="62" selection-start-line="53" selection-start-column="62" selection-end-line="53" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/ylq/internships/InternshipsApplicationTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="924">
+              <caret line="62" selection-start-line="52" selection-start-column="12" selection-end-line="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/ClockRecordMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="16" column="63" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/mapper/ClockRecordMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/internships" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/controller/ClockRecordController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/utils/QiNiuYunUtil.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/school/student-clock-record.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/service/StuAllotService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/controller/StuAllotController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/school/student-internship-list.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/school/infromation-add.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/entity/Information.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/school/notice-add.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/school/notice-infor.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/school/notice-update.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/service/InformationService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/service/serviceImp/InformationServiceImp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/controller/InformationController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/school/notice-list.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/mapper/InformationMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/InformationMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/mapper/StuAllotMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/StuAllotMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/service/serviceImp/StuAllotServiceImp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/utils/PageUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/utils/Contant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/entity/Score.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/school/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/config/MySpringMvcConfigurer.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/school/class-add.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/entity/ScoreStandard.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/ScoreStandardMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/mapper/ScoreStandardMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/service/ScoreStandardService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/school/score-standard.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/utils/mathUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/utils/MathUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/service/serviceImp/ScoreStandardServiceImp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/controller/ScoreStandardController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/dto/ScoreDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/service/ScoreService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/service/serviceImp/ScoreServiceImp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/controller/ScoreController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/school/score-list.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/service/ClockRecordService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/InternshipsApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/mapper/ClockTimeMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/ClockTime.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/mapper/ScoreMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/ScoreMapper.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/com/ylq/internships/InternshipsApplicationTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/mapper/ClockRecordMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/ClockRecordMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ylq/internships/service/serviceImp/ClockRecordServiceImp.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\environment\repository" />
+        <option name="mavenHome" value="D:/environment/apache-maven-3.6.0" />
+        <option name="userSettingsFile" value="D:\environment\apache-maven-3.6.0\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="internships" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="internships" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="15" />
+    <option name="y" value="30" />
+    <option name="width" value="1890" />
+    <option name="height" value="960" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ylq" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ylq" type="462c0819:PsiDirectoryNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ylq" type="462c0819:PsiDirectoryNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ylq" type="462c0819:PsiDirectoryNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ylq" type="462c0819:PsiDirectoryNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="dto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ylq" type="462c0819:PsiDirectoryNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ylq" type="462c0819:PsiDirectoryNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="interceptor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ylq" type="462c0819:PsiDirectoryNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ylq" type="462c0819:PsiDirectoryNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ylq" type="462c0819:PsiDirectoryNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="serviceImp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ylq" type="462c0819:PsiDirectoryNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="company" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="manager" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="school" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ylq" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internships" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ylq" type="462c0819:PsiDirectoryNode" />
+              <item name="internships" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\ideaProject\internships\src\main\resources\templates\school" />
+      <recent name="E:\ideaProject\internships\src\main\resources\templates\company" />
+      <recent name="E:\ideaProject\internships\src\main\java\com\ylq\internships\utils" />
+      <recent name="E:\ideaProject\internships\src\main\resources\static\images" />
+      <recent name="E:\ideaProject\internships\src\main\resources\templates\manager" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ylq.internships.dto" />
+      <recent name="com.ylq.internships.utils" />
+      <recent name="com.ylq.internships.mapper" />
+      <recent name="com.ylq.internships.controller" />
+      <recent name="com.ylq.internships.service.serviceImp" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\ideaProject\internships\src\main\resources\templates\main" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.InternshipsApplication">
+    <configuration name="InternshipsApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="internships" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ylq.internships.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ylq.internships" />
+      <option name="MAIN_CLASS_NAME" value="com.ylq.internships.InternshipsApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InternshipsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="internships" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ylq.internships.InternshipsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.InternshipsApplicationTests.contextLoads" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8cad4b01-d13e-4e0f-a7fb-694560bbd8c6" name="Default Changelist" comment="" />
+      <created>1555591305053</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1555591305053</updated>
+      <workItem from="1555591309400" duration="5197000" />
+      <workItem from="1555643678013" duration="18376000" />
+      <workItem from="1555730003309" duration="6774000" />
+      <workItem from="1555743672360" duration="2932000" />
+      <workItem from="1555746785816" duration="3385000" />
+      <workItem from="1555812961702" duration="7689000" />
+      <workItem from="1555891052275" duration="12925000" />
+      <workItem from="1555940017864" duration="4809000" />
+      <workItem from="1555977532409" duration="13255000" />
+      <workItem from="1556000376818" duration="9673000" />
+      <workItem from="1556063933207" duration="12315000" />
+      <workItem from="1556091981743" duration="811000" />
+      <workItem from="1556163590337" duration="16082000" />
+      <workItem from="1556339463045" duration="16469000" />
+      <workItem from="1556370672604" duration="4419000" />
+      <workItem from="1556417091927" duration="3692000" />
+      <workItem from="1556423261574" duration="435000" />
+      <workItem from="1556429601739" duration="2639000" />
+      <workItem from="1556437199457" duration="3722000" />
+      <workItem from="1556496092179" duration="12945000" />
+      <workItem from="1556582229916" duration="12337000" />
+      <workItem from="1556770342453" duration="5087000" />
+      <workItem from="1556858769518" duration="189000" />
+      <workItem from="1556859049905" duration="7886000" />
+      <workItem from="1556939836902" duration="6167000" />
+      <workItem from="1557039067930" duration="5422000" />
+      <workItem from="1557100568086" duration="12735000" />
+      <workItem from="1557188751269" duration="10496000" />
+      <workItem from="1557273889135" duration="12419000" />
+      <workItem from="1557452581350" duration="9792000" />
+      <workItem from="1557550837580" duration="1661000" />
+      <workItem from="1557626806896" duration="6300000" />
+      <workItem from="1557642719462" duration="75000" />
+      <workItem from="1557705763988" duration="12286000" />
+      <workItem from="1557792211479" duration="1148000" />
+      <workItem from="1557793421070" duration="11537000" />
+      <workItem from="1557817755016" duration="7111000" />
+      <workItem from="1557878265647" duration="13142000" />
+      <workItem from="1557989443517" duration="1991000" />
+      <workItem from="1557994822984" duration="712000" />
+      <workItem from="1558058619577" duration="9001000" />
+      <workItem from="1558142179056" duration="2502000" />
+      <workItem from="1558312786331" duration="1196000" />
+      <workItem from="1558396826024" duration="6381000" />
+      <workItem from="1558483476680" duration="3117000" />
+      <workItem from="1558845596680" duration="12290000" />
+      <workItem from="1558914557857" duration="4551000" />
+      <workItem from="1558919252903" duration="8699000" />
+      <workItem from="1559001569882" duration="11090000" />
+      <workItem from="1559088022712" duration="10934000" />
+      <workItem from="1559181604161" duration="14564000" />
+      <workItem from="1559271619541" duration="1014000" />
+      <workItem from="1559284670818" duration="6484000" />
+      <workItem from="1559447497184" duration="11679000" />
+      <workItem from="1559461974152" duration="2430000" />
+      <workItem from="1559520259213" duration="11354000" />
+      <workItem from="1559533165649" duration="760000" />
+      <workItem from="1559606485719" duration="13579000" />
+      <workItem from="1559629436066" duration="908000" />
+      <workItem from="1560212667295" duration="481000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="InternshipsApplicationTests_contextLoads - 2019.06.04 at 09h 09m 22s.xml">
+      <configuration name="InternshipsApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="InternshipsApplicationTests_contextLoads - 2019.06.04 at 09h 52m 51s.xml">
+      <configuration name="InternshipsApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="InternshipsApplicationTests_contextLoads - 2019.06.04 at 09h 54m 39s.xml">
+      <configuration name="InternshipsApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="InternshipsApplicationTests_contextLoads - 2019.06.04 at 09h 57m 51s.xml">
+      <configuration name="InternshipsApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="InternshipsApplicationTests_contextLoads - 2019.06.04 at 10h 01m 56s.xml">
+      <configuration name="InternshipsApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="InternshipsApplicationTests_contextLoads - 2019.06.04 at 10h 46m 02s.xml">
+      <configuration name="InternshipsApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="InternshipsApplicationTests_contextLoads - 2019.06.04 at 11h 03m 14s.xml">
+      <configuration name="InternshipsApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="InternshipsApplicationTests_contextLoads - 2019.06.04 at 11h 08m 36s.xml">
+      <configuration name="InternshipsApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="InternshipsApplicationTests_contextLoads - 2019.06.04 at 11h 09m 15s.xml">
+      <configuration name="InternshipsApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="InternshipsApplicationTests_contextLoads - 2019.06.04 at 11h 09m 54s.xml">
+      <configuration name="InternshipsApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="430051000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Image Layers" />
+      <window_info id="Capture Tool" />
+      <window_info id="Designer" order="0" />
+      <window_info id="UI Designer" order="1" />
+      <window_info id="Favorites" order="2" side_tool="true" weight="0.32983023" />
+      <window_info id="Web" order="3" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="4" weight="0.2506063" />
+      <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.3286119" />
+      <window_info anchor="bottom" id="MyBatis Sql Log" order="1" sideWeight="0.4987874" weight="0.8574074" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50268096" side_tool="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.3286119" />
+      <window_info anchor="bottom" id="Database Changes" order="4" />
+      <window_info anchor="bottom" id="Spring" order="5" weight="0.32962963" />
+      <window_info anchor="bottom" id="Terminal" order="6" weight="0.32962963" />
+      <window_info anchor="bottom" id="Message" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Java Enterprise" order="9" weight="0.32962963" />
+      <window_info anchor="bottom" id="Find" order="10" weight="0.32962963" />
+      <window_info active="true" anchor="bottom" id="Run" order="11" sideWeight="0.49636218" visible="true" weight="0.9433428" />
+      <window_info anchor="bottom" id="Debug" order="12" weight="0.9444444" />
+      <window_info anchor="bottom" id="Cvs" order="13" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="14" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="15" sideWeight="0.49731904" weight="0.3286119" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Bean Validation" order="0" weight="0.32983023" />
+      <window_info anchor="right" id="Database" order="1" />
+      <window_info anchor="right" id="Palette&#9;" order="2" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.32983023" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="6" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="7" weight="0.2497979" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Designer" order="0" />
+      <window_info id="UI Designer" order="1" />
+      <window_info id="Favorites" order="2" side_tool="true" weight="0.32983023" />
+      <window_info id="Web" order="3" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="4" visible="true" weight="0.2506063" />
+      <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.32962963" />
+      <window_info anchor="bottom" id="MyBatis Sql Log" order="1" sideWeight="0.4987874" weight="0.8574074" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50363785" side_tool="true" weight="0.9444444" />
+      <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info anchor="bottom" id="Database Changes" order="4" />
+      <window_info anchor="bottom" id="Spring" order="5" weight="0.32962963" />
+      <window_info anchor="bottom" id="Terminal" order="6" weight="0.32962963" />
+      <window_info anchor="bottom" id="Message" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Java Enterprise" order="9" weight="0.32962963" />
+      <window_info anchor="bottom" id="Find" order="10" weight="0.32962963" />
+      <window_info anchor="bottom" id="Run" order="11" sideWeight="0.49636218" weight="0.9444444" />
+      <window_info anchor="bottom" id="Debug" order="12" weight="0.9444444" />
+      <window_info anchor="bottom" id="Cvs" order="13" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="14" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="15" weight="0.32962963" />
+      <window_info anchor="right" id="Bean Validation" order="0" weight="0.32983023" />
+      <window_info anchor="right" id="Database" order="1" />
+      <window_info anchor="right" id="Palette&#9;" order="2" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.32983023" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="6" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="7" weight="0.2497979" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="originalFilename" />
+        <watch expression="flag" language="JAVA" />
+        <watch expression="flag" language="JAVA" />
+        <watch expression="flag" language="JAVA" />
+        <watch expression="flag" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>flag</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/service/InformationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/service/serviceImp/InformationServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1025">
+          <caret line="57" column="12" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="12" />
+          <folding>
+            <element signature="method#addInformation#0;class#InformationServiceImp#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/entity/Information.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/mapper/InformationMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="17" column="47" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/controller/InformationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="14" column="29" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/StuAllotMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="65" column="32" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/service/serviceImp/StuAllotServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="123" column="35" lean-forward="true" selection-start-line="123" selection-start-column="35" selection-end-line="123" selection-end-column="35" />
+          <folding>
+            <element signature="method#findStuAllotList#0;class#StuAllotServiceImp#0" />
+            <element signature="method#findSchoolStuAllotList#0;class#StuAllotServiceImp#0" />
+            <element signature="method#findStudentInformation#0;class#StuAllotServiceImp#0" />
+            <element signature="method#findStuAllotListByStuName#0;class#StuAllotServiceImp#0" />
+            <element signature="method#findSchoolStuAllotListByStuName#0;class#StuAllotServiceImp#0" />
+            <element signature="method#editLeadTeacher#0;class#StuAllotServiceImp#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/mapper/StuAllotMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/school/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1750">
+          <caret line="128" column="30" selection-start-line="128" selection-start-column="30" selection-end-line="128" selection-end-column="30" />
+          <folding>
+            <element signature="n#li#0;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#1;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#a#0;n#li#1;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#ul#0;n#li#1;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#0;n#ul#0;n#li#1;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/entity/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/utils/PageUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2450">
+          <caret line="102" column="68" selection-start-line="102" selection-start-column="68" selection-end-line="102" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/config/MySpringMvcConfigurer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="77" column="58" lean-forward="true" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/manager/company-add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-575">
+          <caret line="25" column="37" lean-forward="true" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/entity/ScoreStandard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="57" column="18" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/school/class-add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="76" column="16" lean-forward="true" selection-start-line="76" selection-start-column="16" selection-end-line="79" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/service/serviceImp/ScoreStandardServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="40" column="58" lean-forward="true" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
+          <folding>
+            <element signature="e#609#610#0" expanded="true" />
+            <element signature="e#636#637#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/service/ScoreStandardService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/school/teacher-add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="79" column="24" selection-start-line="79" selection-start-column="24" selection-end-line="81" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/school/score-standard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1850">
+          <caret line="86" column="50" selection-start-line="86" selection-start-column="50" selection-end-line="86" selection-end-column="50" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/utils/MathUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/controller/ScoreStandardController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/entity/Score.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/school/student-internship-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="157" column="72" lean-forward="true" selection-start-line="157" selection-start-column="72" selection-end-line="157" selection-end-column="72" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="e#6435#7333#0" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/mapper/ScoreStandardMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/school/student-clock-record.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1025">
+          <caret line="41" column="30" selection-start-line="36" selection-start-column="90" selection-end-line="41" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/school/notice-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="87" column="62" lean-forward="true" selection-start-line="87" selection-start-column="62" selection-end-line="87" selection-end-column="62" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/school/job-history-list.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/school/stu-allot-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="137" column="51" lean-forward="true" selection-start-line="137" selection-start-column="51" selection-end-line="137" selection-end-column="51" />
+          <folding>
+            <element signature="e#5060#5969#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/school/class-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="168" column="36" selection-start-line="168" selection-start-column="36" selection-end-line="169" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/dto/ScoreDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#247#248#0" expanded="true" />
+            <element signature="e#274#275#0" expanded="true" />
+            <element signature="e#319#320#0" expanded="true" />
+            <element signature="e#351#352#0" expanded="true" />
+            <element signature="e#385#386#0" expanded="true" />
+            <element signature="e#415#416#0" expanded="true" />
+            <element signature="e#461#462#0" expanded="true" />
+            <element signature="e#499#500#0" expanded="true" />
+            <element signature="e#536#537#0" expanded="true" />
+            <element signature="e#569#570#0" expanded="true" />
+            <element signature="e#621#622#0" expanded="true" />
+            <element signature="e#665#666#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/service/ScoreService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="88" selection-start-line="10" selection-start-column="88" selection-end-line="10" selection-end-column="88" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/controller/ScoreController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="32" column="84" selection-start-line="32" selection-start-column="77" selection-end-line="32" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/school/score-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="99" column="54" lean-forward="true" selection-start-line="99" selection-start-column="54" selection-end-line="99" selection-end-column="54" />
+          <folding>
+            <element signature="e#6059#6926#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/service/ClockRecordService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/controller/ClockRecordController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/service/serviceImp/ClockTimeServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/entity/ClockTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-910">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/ClockTime.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="16" column="57" lean-forward="true" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/service/serviceImp/ScoreServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="57" column="13" lean-forward="true" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
+          <folding>
+            <element signature="method#batchUpdate#0;class#ScoreServiceImp#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/mapper/ScoreMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/ScoreMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="61" column="32" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="32" />
+          <folding>
+            <element signature="n#update#1;n#mapper#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/ScoreStandardMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/mapper/ClockTimeMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="15" column="53" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/ClassMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="60" column="13" lean-forward="true" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/InternshipsApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_92/src.zip!/java/util/Calendar.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/utils/Contant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/ylq/internships/InternshipsApplicationTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="924">
+          <caret line="62" selection-start-line="52" selection-start-column="12" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/ClockRecordMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="63" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/mapper/ClockRecordMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ylq/internships/service/serviceImp/ClockRecordServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="53" column="62" selection-start-line="53" selection-start-column="62" selection-end-line="53" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
