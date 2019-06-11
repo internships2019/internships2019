@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylq.internships.mapper.ClassMapper">
+    <resultMap id="class" type="Class">
+        <id property="sScName" column="s_sc_name" javaType="String"/>
+        <id property="className" column="class_name" javaType="String"/>
+        <result property="collegeName" column="college_name" javaType="String"/>
+        <result property="displineName" column="displine_name" javaType="String"/>
+        <result property="classStuNum" column="class_stu_num" javaType="String"/>
+        <result property="instructorName" column="instructor_name" javaType="String"/>
+        <result property="instructorTel" column="instructor_tel" javaType="String"/>
+    </resultMap>
+
+    <select id="getAll" parameterType="String" resultMap="class">
+        SELECT * FROM `class` where s_sc_name=#{sScName}
+    </select>
+
+    <select id="getByNames" resultMap="class">
+         SELECT * FROM `class` where s_sc_name=#{sScName} and class_name=#{className}
+    </select>
+
+    <select id="getNames" resultType="String">
+        SELECT class_name FROM `class` where s_sc_name=#{sScName}
+    </select>
+
+    <select id="getByClassName" resultMap="class">
+         SELECT * FROM `class` where s_sc_name=#{sScName} and class_name=#{className}
+    </select>
+
+
+    <insert id="insertClass" parameterType="Class">
+        INSERT INTO `class` ( `s_sc_name`, `class_name`, `college_name`, `displine_name`, `class_stu_num`, `instructor_name`, `instructor_tel` )
+        VALUES ( #{sScName}, #{className},#{collegeName}, #{displineName}, #{classStuNum}, #{instructorName}, #{instructorTel} ) ;
+    </insert>
+
+    <insert id="insertBatchClass" parameterType="java.util.List">
+        INSERT INTO `class` ( `s_sc_name`, `class_name`, `college_name`, `displine_name`, `class_stu_num`, `instructor_name`, `instructor_tel` )
+        VALUES
+        <foreach collection="list" item="class" index="index" separator=",">
+            ( #{class.sScName}, #{class.className},#{class.collegeName}, #{class.displineName}, #{class.classStuNum},
+            #{class.instructorName}, #{class.instructorTel} )
+        </foreach>
+        ON DUPLICATE KEY UPDATE college_name=values(college_name),displine_name=values(displine_name),
+        class_stu_num=values(class_stu_num),instructor_name=values(instructor_name),instructor_tel=values(instructor_tel)
+    </insert>
+
+    <update id="updateClass" parameterType="com.ylq.internships.dto.ClassDto">
+        UPDATE `class`
+        <set>
+            `class_name` = #{newClassName},
+            `college_name` = #{collegeName},
+            `displine_name` = #{displineName},
+            `class_stu_num` = #{classStuNum},
+            `instructor_name` = #{instructorName},
+            `instructor_tel` = #{instructorTel}
+        </set>
+        WHERE `s_sc_name` = #{sScName} AND `class_name` = #{oldClassName}
+    </update>
+
+    <delete id="deleteClass">
+        DELETE FROM `class` WHERE `s_sc_name` = #{sScName} AND `class_name` = #{className} ;
+    </delete>
+
+    <delete id="deleteBatchClass">
+        DELETE FROM `class`
+        WHERE `s_sc_name` = #{sScName} AND `class_name` in
+        <foreach collection="arr" item="class" open="(" separator="," close=")">
+            #{class}
+        </foreach>
+    </delete>
+</mapper>

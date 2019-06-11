@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylq.internships.mapper.CompanyMapper">
+    <resultMap id="company" type="Company">
+        <id property="comName" column="com_name" javaType="String"/>
+        <result property="comLocation" column="com_location" javaType="String"/>
+        <result property="comTel" column="com_tel" javaType="String"/>
+        <result property="comEmail" column="com_email" javaType="String"/>
+        <result property="comInfo" column="com_info" javaType="String"/>
+        <result property="comLongtitude" column="com_longtitude" javaType="double"/>
+        <result property="comLatitude" column="com_latitude" javaType="double"/>
+        <result property="scName" column="sc_name" javaType="String"/>
+        <result property="nowNum" column="now_num" javaType="int"/>
+    </resultMap>
+
+    <select id="getAllCompany" resultType="String">
+        SELECT `com_name` FROM `company`
+    </select>
+
+    <select id="getAll" resultMap="company">
+        SELECT * FROM `company`
+    </select>
+
+    <select id="getCompanyByConName" parameterType="String" resultMap="company">
+        SELECT * FROM `company` where com_name = #{comName}
+    </select>
+
+    <insert id="insertComapny" parameterType="Company">
+        INSERT INTO `company` ( `com_name`, `com_location`, `com_tel`, `com_email`, `com_info`, `com_longtitude`, `com_latitude` )
+        VALUES ( #{comName}, #{comLocation},#{comTel},#{comEmail}, #{comInfo}, #{comLongtitude},#{comLatitude} ) ;
+    </insert>
+
+    <update id="updateComapny" parameterType="Company">
+        update `company`
+        <set>
+            <if test="comTel !=null and comTel!=''">`com_tel` = #{comTel},</if>
+            <if test="comEmail !=null and comEmail!=''">`com_email` = #{comEmail},</if>
+            <if test="comInfo !=null and comInfo!=''">`com_info` = #{comInfo}</if>
+        </set>
+        where com_name = #{comName}
+    </update>
+
+    <delete id="deleteComapny" parameterType="String">
+        DELETE FROM `company` WHERE `com_name` =  #{comName};
+    </delete>
+</mapper>

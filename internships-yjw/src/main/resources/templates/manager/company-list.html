@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学校列表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" th:href="@{/css/font.css}" href="./css/font.css">
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" href="./css/xadmin.css">
+    <script th:src="@{/layui/layui.js}" src="layui/layui.js" charset="utf-8"></script>
+</head>
+<body style="margin: 20px;">
+
+    <table class="layui-hide"  id="company" lay-filter="company"></table>
+    <!--数据表格左侧工具栏-->
+    <script type="text/html" id="toolbarDemo">
+        <div class="layui-btn-container">
+            <button class="layui-btn layui-btn-sm" lay-event="addCompany"><i class="layui-icon">&#xe654;</i>添加企业</button>
+        </div>
+    </script>
+    <!--数据表格操作选项中的按钮-->
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+    <script >
+        var callData=null;
+        layui.use(['table','layer','jquery'],function () {
+            var table=layui.table;
+            var layer=layui.layer;
+            var $=layui.jquery;
+
+            //表格构造
+            var tableIns=table.render({
+                elem: '#company'
+                ,url:'/internships/company/find_all'
+                ,height:450
+                ,cellMinWidth: 200
+                ,toolbar:'default'
+                ,page:true
+                ,toolbar: '#toolbarDemo'
+                ,cols: [
+                    [
+                        {fixed:'left',field:'comName',title: '企业名称',align:"center"}
+                        ,{field:'comLocation',width:300,title: '企业地址',align:"center"}
+                        ,{field:'comTel', title: '联系电话',align:"center"}
+                        ,{field:'comEmail',title: '企业邮箱',align:"center"}
+                        ,{field:'comLongtitude',width:100,title: '企业经度',align:"center"}
+                        ,{field:'comLatitude', width:100,title: '企业纬度',align:"center"}
+                        ,{fixed:'right',width:150,title:'操作',toolbar:'#barDemo',align:"center"}
+                    ]
+                ]
+            });
+
+
+            //工具栏事件
+            table.on('toolbar(company)',function (obj) {
+                switch (obj.event) {
+                    case 'addCompany'://添加企业
+                        layer.open({
+                            type: 2,
+                            title: '添加企业',
+                            shade:0.5,//设置弹窗背景遮蔽
+                            shadeClose: true,
+                            maxmin: true, //开启最大化最小化按钮
+                            area: ['800px', '450px'],//
+                            scrollbar: false,
+                            content: '/internships/company-add'
+                        });
+                        break
+                };
+            });
+
+            //监听行单击事件
+            table.on('tool(company)', function(obj){
+                console.log(obj);
+                switch (obj.event) {
+                    case 'edit'://修改功能
+                        layer.open({
+                            type: 2
+                            ,title: '修改企业'
+                            ,shade:0.5//设置弹窗背景遮蔽
+                            ,shadeClose: true
+                            ,maxmin: true //开启最大化最小化按钮
+                            ,area: ['800px', '430px']//
+                            ,scrollbar: false
+                            ,content: '/internships/company-edit'
+                            ,success:function (layero,index) {
+                                // 获取子页面的iframe
+                                var iframe = window['layui-layer-iframe' + index];
+                                // 向子页面的全局函数child传参
+                                iframe.child(obj.data);
+                            }
+                            ,end:function () {//弹窗关闭，数据回显
+                                if (callData!=null){
+                                    obj.update({
+                                        comTel:callData.comTel,
+                                        comEmail:callData.comEmail
+                                    });
+                                    callData=null;
+                                }
+                            }
+                        });
+                        break;
+                    case 'del'://删除功能
+                        layer.confirm('您确定要删除'+obj.data.comName+'吗?',function (index) {
+                            $.ajax({
+                                url:'/internships/company/remove_company',
+                                type:'post',
+                                contentType: 'application/json',
+                                data:obj.data.comName,
+                                dataType:'text',
+                                success:function () {
+                                    layer.msg("删除成功!",{icon:1});
+                                }
+                            });
+                            obj.del();
+                            layer.close(index);
+                        });
+                        break;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

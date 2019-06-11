@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylq.internships.mapper.ClockRecordMapper">
+    <resultMap id="clockRecord" type="ClockRecord">
+        <id property="clockId" column="clock_id" javaType="Integer"/>
+        <result property="wxNo" column="wx_no" javaType="String"/>
+        <result property="clockTime" column="clock_time" javaType="java.util.Date"/>
+        <result property="clockLocation" column="clock_location" javaType="String"/>
+        <result property="clockLongtitude" column="clock_longtitude" javaType="Double"/>
+        <result property="clockLatitude" column="clock_latitude" javaType="Double"/>
+        <result property="clockType" column="clock_type" javaType="String"/>
+        <result property="clockStatus" column="clock_status" javaType="String"/>
+        <result property="deductScore" column="deduct_score" javaType="Double"/>
+        <result property="scTeaWx" column="sc_tea_wx" javaType="String"/>
+    </resultMap>
+
+    <select id="latestRecord" resultType="ClockRecord">
+        select * from `clock_record`
+        where `clock_time`=(select max(`clock_time`) from `clock_record`) and `wx_no`=#{openid}
+    </select>
+    
+    <insert id="insertRecord" parameterType="ClockRecord">
+        INSERT INTO `clock_record` ( `wx_no`, `clock_time`, `clock_location`, `clock_longtitude`, `clock_latitude`, `clock_type`, `clock_status`, `deduct_score`, `sc_tea_wx` )
+        VALUES ( #{wxNo}, #{clockTime}, #{clockLocation}, #{clockLongtitude}, #{clockLatitude}, #{clockType}, #{clockStatus}, #{deductScore}, #{scTeaWx} ) ;
+    </insert>
+
+    <select id="getRecords" resultMap="clockRecord">
+        select * from  `clock_record`
+        where `wx_no` =#{openid}
+        order by `clock_time` desc
+    </select>
+</mapper>

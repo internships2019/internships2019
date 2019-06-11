@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylq.internships.mapper.InformationMapper">
+    <resultMap id="information" type="Information">
+        <id property="infoId" column="info_id" javaType="Integer"/>
+        <result property="sScName" column="s_sc_name" javaType="String"/>
+        <result property="infoTitle" column="info_title" javaType="String"/>
+        <result property="infoContent" column="info_content" javaType="String"/>
+        <result property="infoTime" column="info_time" javaType="java.util.Date"/>
+    </resultMap>
+
+    <select id="getAllInfo" resultMap="information">
+        select * from `information` where `s_sc_name` = #{sScName}
+    </select>
+
+    <select id="getLatest" resultMap="information">
+        select * from `information`
+        where `info_time`=(select max(`info_time`) from `information` )
+    </select>
+
+    <select id="getById" resultMap="information">
+        select * from `information` where `info_id` = #{id};
+    </select>
+</mapper>

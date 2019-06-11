@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylq.internships.mapper.ManagerMapper">
+    <resultMap id="manager" type="Manager">
+        <id property="manAccount" column="man_account" javaType="String" />
+        <result property="manName" column="man_name" javaType="String" />
+        <result property="manPassword" column="man_password" javaType="String" />
+        <result property="manNuitName" column="man_unit_name" javaType="String" />
+        <result property="manStatus" column="man_status" javaType="String" />
+    </resultMap>
+
+    <select id="getMangerByAccount" parameterType="String" resultMap="manager">
+        SELECT `man_account`, `man_name`, `man_password`, `man_unit_name`, `man_status` FROM `manager`
+        where man_account=#{manAccount}
+    </select>
+
+    <select id="getSchoolManager" parameterType="String" resultMap="manager">
+        SELECT * FROM `manager` where man_status=#{manStatus}
+    </select>
+
+    <insert id="insertManager" parameterType="Manager">
+        INSERT INTO `manager` ( `man_account`, `man_name`, `man_password`, `man_unit_name`, `man_status` )
+        VALUES ( #{manAccount}, #{manName}, #{manPassword}, #{manNuitName}, #{manStatus} ) ;
+    </insert>
+
+    <update id="updateManager" parameterType="Manager">
+        UPDATE
+          `manager`
+        <set>
+            <if test="manName !=null and manName!= ''">`man_name` = #{manName}</if>
+            <if test="manPassword !=null and manPassword!= ''">,`man_password` = #{manPassword}</if>
+        </set>
+        WHERE `man_account` =#{manAccount}
+    </update>
+
+    <delete id="deleteManager" parameterType="String">
+        DELETE FROM `manager` WHERE `man_account` = #{manAccount} ;
+    </delete>
+
+    <delete id="deleteBatchManager"  parameterType="String">
+        DELETE FROM `manager` WHERE `man_account` in
+        <foreach collection="array" item="manAccount" open="(" separator="," close=")">
+            #{manAccount}
+        </foreach>
+    </delete>
+</mapper>

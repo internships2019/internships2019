@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ylq.internships.mapper.ScoreMapper">
+    <resultMap id="score" type="Score">
+        <id property="scoreId" column="score_id" javaType="String"/>
+        <result property="wxNo" column="wx_no" javaType="String"/>
+        <result property="attanScore" column="attan_score" javaType="Double"/>
+        <result property="apprScore" column="appr_score" javaType="Double"/>
+        <result property="intagrateScore" column="intagrate_score" javaType="Double"/>
+        <result property="scName" column="sc_name" javaType="String"/>
+        <association property="scoreStandard" javaType="ScoreStandard">
+            <result property="attanPecent" column="attan_percent" javaType="Double"/>
+            <result property="apprPecent" column="appr_percent" javaType="Double"/>
+        </association>
+    </resultMap>
+
+    <select id="getScore" resultMap="score">
+        select * from `score` where `wx_no` = #{openid}
+    </select>
+
+    <update id="updateAttanScore">
+        update `score`
+        set `attan_score` = #{attan_score}
+        where `wx_no` = #{openid}
+    </update>
+
+    <update id="updateScore">
+        update `score`
+        set `attan_score` = #{attan_score} and `intagrate_score` = #{inta_score}
+        where `wx_no` = #{openid}
+    </update>
+    <update id="updateIntaScore">
+        update `score`
+        set `intagrate_score` = #{inta_score}
+        where `wx_no` = #{openid}
+    </update>
+</mapper>

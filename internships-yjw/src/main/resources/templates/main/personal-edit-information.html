@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息修改</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" >
+    <script th:src="@{/layui/layui.js}" charset="utf-8"></script>
+</head>
+<body style="padding: 20px">
+    <form class="layui-form">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">旧密码：</label>
+                <div class="layui-input-inline">
+                    <input name="oldPassword" lay-verify="required"   type="password" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">新用户名：</label>
+                <div class="layui-input-inline">
+                    <input name="userName" placeholder="请输入新用户名"  type="text" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">新密码：</label>
+                <div class="layui-input-inline">
+                    <input name="newPassword" placeholder="请输入新密码"  type="password" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit="" lay-filter="demo">修改</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+    <script th:inline="javascript">
+        var user=[[${session.user}]];//从session中获取当前用户信息
+        console.log(user);
+        layui.use(['form','jquery'],function () {
+            var form=layui.form;
+            var $=layui.jquery;
+
+            //表单提交事件
+            form.on('submit(demo)',function (fdata) {
+                $.ajax({
+                    url:'/internships/manager/edit_information'
+                    ,dataType:'text'
+                    ,data:{oldPassword:fdata.field.oldPassword,userName:fdata.field.userName,newPassword:fdata.field.newPassword}
+                    ,success:function (res) {
+                        if (res=="1"){
+                            layer.alert("信息修改成功！",{icon:1},function () {
+                                var index = parent.layer.getFrameIndex(window.name);//关闭当前弹出层
+                                parent.layer.close(index);//执行弹出层关闭
+                            });
+                        } else if (res=="2") {
+                            layer.msg("旧密码错误，无法修改用户信息",{icon:2});
+                        }
+                    },error:function (res) {
+                        console.log(res);
+                    }
+                });
+                return false;
+            });
+        })
+    </script>
+</body>
+</html>
